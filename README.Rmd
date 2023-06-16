@@ -24,6 +24,6 @@ knitr::opts_chunk$set(
 
 # Overview
 
-Repository containing the R codes and the associated materials to process the transcription^[News related to the transcription of the Enggano-German dictionary are published [here](https://www.ling-phil.ox.ac.uk/news/2023/05/28/retro-digitisation-work-enggano-german-dictionary-udayana-university-indonesia) and [here](https://sasing.unud.ac.id/posts/boel-students-involved-in-research-project-led-by-researchers-from-the-university-of-oxford-uk)] output of the Enggano-German Dictionary @kähler1987.
+Repository containing the R codes and the associated materials to process the retro-digitisation^[News related to the transcription of the Enggano-German dictionary are published [here](https://www.ling-phil.ox.ac.uk/news/2023/05/28/retro-digitisation-work-enggano-german-dictionary-udayana-university-indonesia) and [here](https://sasing.unud.ac.id/posts/boel-students-involved-in-research-project-led-by-researchers-from-the-university-of-oxford-uk)] output of the Enggano-German Dictionary @kähler1987.
 
 ## References

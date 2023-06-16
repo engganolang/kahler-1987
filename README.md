@@ -29,8 +29,8 @@ project](https://enggano.ling-phil.ox.ac.uk/)*.
 # Overview
 
 Repository containing the R codes and the associated materials to
-process the transcription[^1] output of the Enggano-German Dictionary
-Kähler ([1987](#ref-kähler1987)).
+process the retro-digitisation[^1] output of the Enggano-German
+Dictionary Kähler ([1987](#ref-kähler1987)).
 
 ## References
 
