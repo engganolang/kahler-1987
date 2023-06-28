@@ -112,7 +112,7 @@ kstem |>
   mutate(variant_forms = str_count(stem_formVarian, "\\b[^,;]+\\b")) |> 
   select(stem_form, stem_formVarian, variant_forms) |> 
   filter(!is.na(variant_forms)) |> 
-  arrange(desc(variant_forms)) |> summarise(mean_var = mean(variant_forms))
+  arrange(desc(variant_forms)) |> summarise(mean_var = mean(variant_forms), median_var = median(variant_forms))
 
 ### test count the source language marked as etymology =====
 kstem |> 
