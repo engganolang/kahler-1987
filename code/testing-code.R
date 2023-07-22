@@ -135,7 +135,11 @@ kstem |>
 
 
 
-
+# count the number of characters to get the trimmed entry ======
+char_count <- kstem |> 
+  select(matches("German|crossref|remark")) |> 
+  mutate(across(matches("German|crossref|remark"), nchar, .names = "nchar_{.col}"))
+## the remark
 
 
 
