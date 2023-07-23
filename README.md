@@ -30,7 +30,7 @@ project](https://enggano.ling-phil.ox.ac.uk/)*.
 
 Repository containing the R codes and the associated materials to
 process the retro-digitisation[^1] output of the Enggano-German
-Dictionary ([Kähler 1987](#ref-kähler1987)). My work in the digitasation
+Dictionary ([Kähler 1987](#ref-kähler1987)). My work in the digitisation
 task is substantially supported by the core members of the digitisation
 team:
 
