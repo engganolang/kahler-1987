@@ -47,8 +47,9 @@ team:
 3.  [Putu Dea Indah
     Kartini](https://www.researchgate.net/profile/Putu-Kartini) (Udayana
     University, undergrad. student research assistant and transcriber)
-4.  Fitriani Putri Koemba (Udayana University, undergrad. student
-    research assistant and transcriber)
+4.  [Fitriani Putri
+    Koemba](https://figshare.com/authors/Fitri_Koemba/16637976) (Udayana
+    University, undergrad. student research assistant and transcriber)
 5.  [I Gede Semara Dharma
     Putra](https://figshare.com/authors/I_Gede_Semara_Dharma_Putra/11755628)
     (Udayana University, undergrad. student research assistant and
