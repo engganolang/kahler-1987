@@ -85,10 +85,9 @@ knitr::opts_chunk$set(
         -   In the stems, the trimmed entries for "**crossreference**" are as follows (characters count ranging from 248-252):
 
             -   `'kms_page==144 & kms_entry_no==16'`
-            
-            -   `'kms_page==164, kms_entry_no==6'`
-            
-            -   `'kms_page==108, kms_entry_no==5'`
-            
 
--   Do the same for the **Example** file.
+            -   `'kms_page==164, kms_entry_no==6'`
+
+            -   `'kms_page==108, kms_entry_no==5'`
+
+-   Do the same for the **Example** file (DONE; see the pre-processing code file).

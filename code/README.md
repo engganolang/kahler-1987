@@ -123,4 +123,5 @@ project](https://enggano.ling-phil.ox.ac.uk/)*.
 
       - `'kms_page==108, kms_entry_no==5'`
 
-- Do the same for the **Example** file.
+- Do the same for the **Example** file (DONE; see the pre-processing
+  code file).
