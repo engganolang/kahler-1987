@@ -3,18 +3,18 @@ library(readxl)
 
 # read the stem ====
 ## IMPORTANT: Re-check the `range` when the transcription is done!
-kstem <- read_xlsx("data-raw/kahler1.xlsx", range = "A29:X2117") |> 
+kstem <- read_xlsx("data-raw/old/kahler1.xlsx", range = "A29:X2117") |> 
   mutate(kms_Alphabet = str_to_lower(kms_Alphabet)) |> 
   arrange(as.numeric(kms_page), kms_Alphabet, as.numeric(kms_entry_no))
 
-lang_abbr <- read_xlsx("data-raw/kahler1.xlsx", range = "A5:B27") |> 
+lang_abbr <- read_xlsx("data-raw/old/kahler1.xlsx", range = "A5:B27") |> 
   mutate(sw_name = replace(sw_name, sw_name %in% c("PAN", "UAN (Proto-Austronesian)"), "PAN (Proto-Austronesian)"),
          sw_name = replace(sw_name, sw_name == "MKB", "MKB (Minangkabau [Austronesian, Sumatra])"),
          sw_name = replace(sw_name, sw_name == "SMtw", "SMtw (Sudmentawai [South Mentawai])"))
 
 # read the example ====
 ## IMPORTANT: Re-check the `range` when the transcription is done!
-kex <- read_xlsx("data-raw/kahler1.xlsx", range = "A2119:T5500")
+kex <- read_xlsx("data-raw/old/kahler1.xlsx", range = "A2119:T5500")
 
 
 # inspect the encoding
