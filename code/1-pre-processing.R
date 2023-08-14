@@ -98,10 +98,105 @@ stems3 <- stems2 |>
                                  stem_crossref),
          stem_crossref = if_else(kms_page==108 & kms_entry_no==5,
                                  paste(stem_crossref, kms_108_entry_5_part, sep = ""),
-                                 stem_crossref)
-         )
+                                 stem_crossref))
 
-
+### fixing typos =====
+stems4 <- stems3 |> 
+  mutate(stem_GermanTranslation = if_else(stem_id == "9_1686458720",
+                                          str_replace(stem_GermanTranslation,
+                                                      "^Baumstmpf",
+                                                      "Baumstumpf"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "11_1684220509",
+                                          str_replace(stem_GermanTranslation,
+                                                      "\\,\\s",
+                                                      " "),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "11_1684285480",
+                                          str_replace_all(stem_GermanTranslation,
+                                                      "\\s(\\([ri])",
+                                                      "\\1"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1683777738",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "P1-Praafix",
+                                                          "Pl-Praafix"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684221429",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "^vor Wortstāmmen",
+                                                          "^vor Wortstämmen"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684222515",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "frūher",
+                                                          "früher"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684293286",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "prāfix",
+                                                          "präfix"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684391149",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "\\'(jetzt)\\' (epoo)",
+                                                          '\\1 "\\2"'),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684394399",
+                                          paste(stem_GermanTranslation, ")", sep = ""),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684827147",
+                                          paste(stem_GermanTranslation, ")", sep = ""),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684832859",
+                                          paste(stem_GermanTranslation, ")", sep = ""),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "12_1684834734",
+                                          str_replace_all(stem_GermanTranslation, 
+                                                          "(Schatten)\\s",
+                                                          "\\1"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "8_1684207650",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "vorhaden",
+                                                          "vorhanden"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "8_1684213149",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "tritt ein",
+                                                          "tritt ein!"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "8_1684419143",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "sie - pronominales Präfix (3 . P1) vor Verben mit b (u)-, m(ũ)-",
+                                                          "sie - pronominales Präfix (3.Pl) vor Verben mit b(u)-, m(ũ)-"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id %in% c("9_1683686106", "9_1683692560"), "Männername"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, str_detect(stem_GermanTranslation, "^Mānnername$"), "Männername"),
+         stem_GermanTranslation = str_replace_all(stem_GermanTranslation, "\\bMānnern\\b", "\\bMännern\\b"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1684162360", "das Hochsein"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1684251022", "versammelt, ingesammelt, beisammen sein"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "11_1684915330", "ein Teil, eine Schnitte, halbe(r,s)"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_GermanTranslation == "Nachkommen (schaft)", "Nachkommen(schaft)"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "11_1685430762", "jene(r,s) - korrelat zur 3.P"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1684234186", "(herum)gehen"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1684234902", "öffne, laß losǃ"),
+         stem_GermanTranslation = if_else(str_detect(stem_GermanTranslation, "\\bschlūrfen\\b"),
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "\\bschlūrfen\\b",
+                                                          "schlürfen"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = if_else(stem_id == "9_1683686558",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "frūheren",
+                                                          "früheren"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1683692494", "Überschuß, Rest"),
+         stem_GermanTranslation = if_else(stem_id == "9_1683773300",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "Rüsselkāfers",
+                                                          "Rüsselkäfers"),
+                                          stem_GermanTranslation))
 
 # read the example ====
 # kex <- read_xlsx("data-raw/primary/kahler-done-2-replaced.xlsx", range = "A3359:T9070")
@@ -200,29 +295,51 @@ char_count |>
 
 # to translate ====
 ## German translation of the stem table =====
-tr1 <- stems3 |> 
+tr1 <- stems4 |> 
   select(stem_id, stem_GermanTranslation) |> 
   filter(!is.na(stem_GermanTranslation)) |> 
   rename(German = stem_GermanTranslation) |> 
   mutate(category = "stem_GermanTranslation")
-tr2 <- stems3 |> 
+tr2 <- stems4 |> 
   select(stem_id, stem_GermanTranslationVariant) |> 
   filter(!is.na(stem_GermanTranslationVariant)) |> 
   rename(German = stem_GermanTranslationVariant) |> 
   mutate(category = "stem_GermanTranslationVariant")
-tr3 <- stems3 |> 
+tr3 <- stems4 |> 
   select(stem_id, stem_crossref) |> 
   filter(!is.na(stem_crossref)) |> 
   rename(German = stem_crossref) |> 
   mutate(category = "stem_crossref")
-tr4 <- stems3 |> 
+tr4 <- stems4 |> 
   select(stem_id, stem_remark) |> 
   filter(!is.na(stem_remark)) |> 
   rename(German = stem_remark) |> 
   mutate(category = "stem_remark")
-tr_stem <- bind_rows(tr1, tr2, tr3, tr4)
-tr_stem |> 
-  writexl::write_xlsx("to-translate/1_stem_german_translation.xlsx")
+tr_stem <- bind_rows(tr1, tr2, tr3, tr4) |> 
+  mutate(wordcount = str_count(German, "\\b([^(),; !-=]+)\\b"))
+stem_german_only <- tr_stem |> 
+  filter(str_detect(category, "German")) |> 
+  mutate(wordcount = str_count(German, "\\b([^(),; !-=]+)\\b"))
+sum(stem_german_only$wordcount)
+sum(tr_stem$wordcount)
+
+stems4 <- stems4 |> 
+  mutate(stem_etym_form_German = if_else(stem_id == "9_1685625844",
+                                         str_extract(stem_GermanTranslation,
+                                                     "\"der zu Angelnde\""),
+                                         NA),
+         stem_GermanTranslation = if_else(stem_id == "9_1685625844",
+                                          str_replace_all(stem_GermanTranslation,
+                                                          "^\\(\"der zu Angelnde\"\\s\\=\\)\\s",
+                                                          ""),
+                                          stem_GermanTranslation))
+
+stems4 |> 
+  writexl::write_xlsx("data-main/stem4.xlsx")
+# stem_german_only |> 
+#   writexl::write_xlsx("to-translate/1_stem_german_translation.xlsx")
+
+
 
 ## German translation of the example table =====
 tr1 <- examples2 |> 
@@ -245,7 +362,19 @@ tr4 <- examples2 |>
   filter(!is.na(example_remark)) |> 
   rename(German = example_remark) |> 
   mutate(category = "example_remark")
-tr_ex <- bind_rows(tr1, tr2, tr3, tr4) 
-tr_ex |> 
-  writexl::write_xlsx("to-translate/2_example_german_translation.xlsx")
+tr_ex <- bind_rows(tr1, tr2, tr3, tr4) |> 
+  mutate(wordcount = str_count(German, "\\b([^(),; !-=]+)\\b"))
+example_german_only <- tr_ex |> 
+  filter(str_detect(category, "German")) |> 
+  mutate(wordcount = str_count(German, "\\b([^(),; !-=]+)\\b"))
+sum(example_german_only$wordcount)
+sum(tr_ex$wordcount)
+# example_german_only |> 
+#   writexl::write_xlsx("to-translate/2_example_german_translation.xlsx")
 
+
+## total data for translations =====
+(rows_numbers_german_only <- sum(nrow(stem_german_only), nrow(example_german_only)))
+(rows_numbers_all <- sum(nrow(tr_stem), nrow(tr_ex)))
+(wordcount_german_only <- sum(example_german_only$wordcount, stem_german_only$wordcount))
+(wordcount_all <- sum(tr_ex$wordcount, tr_stem$wordcount))
