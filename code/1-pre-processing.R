@@ -208,23 +208,20 @@ stems4 <- stems3 |>
                                                           "frūheren",
                                                           "früheren"),
                                           stem_GermanTranslation),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '9_1684988081', 'bezeichnet Verstärkung oder Mehrzahl'),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1688022882", "das Schwindligsein, Schwindel, Wanken"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689608120", "Musang, Zibetkatze"),
          stem_crossref = replace(stem_crossref, stem_id == "10_1689608120", "H88:277 nafie-nafie"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "12_1687845906", "hin und wieder, ab und zu"),
          stem_homonymID = replace(stem_homonymID, stem_id == "12_1687847379", 2),
          stem_formVarian = replace(stem_formVarian, stem_id == "12_1687847379", NA),
-         
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1688085511", "gehe!"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1684987873", "Bestandteil des Präfixes des Nomen causativum mit kip(a)-"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '11_1687148518', "Unkraut, Gras"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '11_1688357328', '(Blatt)Unterlage (fürs Essen)'),
-         
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "12_1688366718", "Sehne des Bogens, aus Bast"),
          stem_remark = replace(stem_remark, stem_id == "12_1688366718", "(Keuning 192 Fußnote 11: Deze 'schichten ende boghen' [im Journal der Reise von de Houtman und de Keyser, 1596] moeten wel op een vergissing berusten. In geen enkel ander bericht wordt ooit voor Enggano van pijl en boog gerept. Vermoedelijk heeft men op een afstand de werpsperen, waarvan de Engganees meestal enige met zich meedroeg, voor pijl en boog aangezien. Dgl bei MOD 243"),
-         
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '12_1687834812', 'dann (kann den einem irrealen Konditionalsatz nachgestellten Hauptsatz einleiten)'),
-         
          stem_remark = if_else(stem_id == '19_1683781496',
                                str_extract(stem_GermanTranslation, 'Sim.+(?=\\)\\sBruchs)'),
                                stem_remark),
