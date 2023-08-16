@@ -216,6 +216,9 @@ stems4 <- stems3 |>
          stem_formVarian = replace(stem_formVarian, stem_id == "12_1687847379", NA),
          
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1688085511", "gehe!"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1684987873", "Bestandteil des Präfixes des Nomen causativum mit kip(a)-"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '11_1687148518', "Unkraut, Gras"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '11_1688357328', '(Blatt)Unterlage (fürs Essen)'),
          
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "12_1688366718", "Sehne des Bogens, aus Bast"),
          stem_remark = replace(stem_remark, stem_id == "12_1688366718", "(Keuning 192 Fußnote 11: Deze 'schichten ende boghen' [im Journal der Reise von de Houtman und de Keyser, 1596] moeten wel op een vergissing berusten. In geen enkel ander bericht wordt ooit voor Enggano van pijl en boog gerept. Vermoedelijk heeft men op een afstand de werpsperen, waarvan de Engganees meestal enige met zich meedroeg, voor pijl en boog aangezien. Dgl bei MOD 243"),
@@ -233,6 +236,24 @@ stems4 <- stems3 |>
                                                           "Rüsselkāfers",
                                                           "Rüsselkäfers"),
                                           stem_GermanTranslation))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # read the example ====
 # kex <- read_xlsx("data-raw/primary/kahler-done-2-replaced.xlsx", range = "A3359:T9070")
