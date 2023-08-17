@@ -213,6 +213,7 @@ stems4 <- stems3 |>
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '9_1684988081', 'bezeichnet Verstärkung oder Mehrzahl'),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1688022882", "das Schwindligsein, Schwindel, Wanken"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689608120", "Musang, Zibetkatze"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1685158316", "ausgehöhlte Kokosnuß als Trinkgefäß"),
          stem_crossref = replace(stem_crossref, stem_id == "10_1689608120", "H88:277 nafie-nafie"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "12_1687845906", "hin und wieder, ab und zu"),
          stem_homonymID = replace(stem_homonymID, stem_id == "12_1687847379", 2),
