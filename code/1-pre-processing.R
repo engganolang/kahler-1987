@@ -188,6 +188,8 @@ stems4 <- stems3 |>
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '17_1684155768', 'Zaun(pfahl), Palisade'),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '17_1684243719', 'Käfer'),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "15_1688124911", "Öl"),
+         stem_formVarian = replace(stem_formVarian, stem_id == "12_1684853273", "ekidá:uʔuo"),
+         stem_dialectVariant = replace(stem_dialectVariant, stem_id == "12_1684853273", "ekidá:uʔuo (DIA)"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "15_1688197962", "andere(r,s) ; außerdem"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689178924", "Art und Weise"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689603451", "Schnur, Stück (Hilfszählwort beim Zählen von Glasperlenschnüren)"),
