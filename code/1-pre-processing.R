@@ -220,6 +220,7 @@ stems4 <- stems3 |>
          stem_homonymID = replace(stem_homonymID, stem_id == "12_1687847379", 2),
          stem_formVarian = replace(stem_formVarian, stem_id == "12_1687847379", NA),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1688085511", "gehe!"),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1687838176", "(hebt das folgende Wort hervor)"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689179683", "wie (beim Vergleich)"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689180816", "husch!l, hopp!, los!"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689180940", "Attributanzeiger vor dem Rectum; es ersetzt den Singular-Artikel e-"),
