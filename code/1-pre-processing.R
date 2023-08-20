@@ -231,7 +231,7 @@ stems4 <- stems3 |>
          stem_formVarian = replace(stem_formVarian, stem_id == "12_1684850663", "ekabá:édo"),
          stem_remark = replace(stem_remark, stem_id == "12_1684850663", "Papaja?, H16 èkapèlo 'een papegaaisoort'"),
          stem_crossref = replace(stem_crossref, stem_id == "17_1685194033", "H16 èpèkoeqwaq 'maag, krop'; èpèkoe(w)aq 'lever'"),
-         stem_crossref = replace(stem_crossref, stem_id == "19_1686349301", "s Erz XIV; H 16 hoeko(q)ä 'eene heilige plaats, waar de meeste geesten verblijven'; H88:281 Hoekok² '... waar zich de meeste èkowèks moeten ophouden'"),
+         stem_crossref = replace(stem_crossref, stem_id == "19_1686349301", "s Erz XIV; H16 hoeko(q)ä 'eene heilige plaats, waar de meeste geesten verblijven'; H88:281 Hoekok² '... waar zich de meeste èkowèks moeten ophouden'"),
          stem_remark = replace(stem_remark, stem_id == "12_1684835372", "H16 èkanoeoenoe 'vogelklauw' ; MOD canuúnu 'unghia'"),
          stem_remark = replace(stem_remark, stem_id == "12_1683692043", "H16 èkahaoe 'buiten eene omheinde plaats'"),
          stem_crossref = replace(stem_crossref, stem_id == "10_1684206125", "H16 kohèaq 'hut', èkohèaq 'zich met bladeren, inz. van den pandanus, beschutten tegen den regen; regenscherm.'"),
