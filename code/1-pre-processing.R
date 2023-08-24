@@ -316,6 +316,13 @@ stems4 <- stems3 |>
                                           str_replace_all(stem_GermanTranslation,
                                                           "Rüsselkāfers",
                                                           "Rüsselkäfers"),
+                                          stem_GermanTranslation),
+         stem_remark = replace(stem_remark, stem_id == "15_1685071027", "ML [Bengkulu-Dialekt] pitih"),
+         stem_crossref = replace(stem_crossref, stem_id == "8_1685086592", "§ 10a"),
+         stem_remark = replace(stem_remark, stem_id == "12_1684292462", "ML moak"),
+         stem_remark = replace(stem_remark, str_detect(stem_remark, "^\\(DIA\\)$"), "DIA"),
+         stem_GermanTranslation = if_else(stem_id == "19_1685156698",
+                                          str_replace_all(stem_GermanTranslation, "Hilfszahlwort", "Hilfszählwort"),
                                           stem_GermanTranslation))
 
 
