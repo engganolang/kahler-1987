@@ -373,7 +373,12 @@ examples2 <- examples1 |>
          across(where(is.character), ~str_replace_all(., "(é|é)", "é")),
          across(where(is.character), ~str_replace_all(., "(ú|ú)", "ú")),
          across(where(is.character), ~str_replace_all(., "(ü|ü)", "ü")),
-         across(where(is.character), ~str_replace_all(., "(ß|ẞ)", "ß")))
+         across(where(is.character), ~str_replace_all(., "(ß|ẞ)", "ß")),
+         across(matches("German"), ~str_replace_all(., "ā", "ä")),
+         across(matches("German"), ~str_replace_all(., "ī", "ï")),
+         across(matches("German"), ~str_replace_all(., "ū", "ü")),
+         across(matches("German"), ~str_replace_all(., "ē", "ë")),
+         across(matches("German"), ~str_replace_all(., "ō", "ö")))
 
 # testing the replacement
 examples2 |> select(where(is.character)) |> filter(if_any(where(is.character), ~str_detect(., "ə̃́")))
@@ -417,19 +422,19 @@ examples3 <- examples2 |>
                                     paste(example_crossref, crossref_ex_part_2, sep = ""),
                                     example_crossref),
          example_crossref = if_else(stem_id == "12_1684292048" & example_id == "12_1684292048_0",
-                                    paste(example_crossref, crossref_ex_part_2, sep = ""),
+                                    paste(example_crossref, crossref_ex_part_3, sep = ""),
                                     example_crossref),
          example_crossref = if_else(stem_id == "15_1685324586" & example_id == "15_1685324586_3",
-                                    paste(example_crossref, crossref_ex_part_2, sep = ""),
+                                    paste(example_crossref, crossref_ex_part_4, sep = ""),
                                     example_crossref),
          example_GermanTranslation = if_else(stem_id == "17_1685520127" & example_id == "17_1685520127_0",
                                              paste(example_GermanTranslation, example_german_trans_part_1, sep = ""),
                                              example_GermanTranslation),
          example_GermanTranslation = if_else(stem_id == "10_1685081633" & example_id == "10_1685081633_0",
-                                             paste(example_GermanTranslation, example_german_trans_part_1, sep = ""),
+                                             paste(example_GermanTranslation, example_german_trans_part_2, sep = ""),
                                              example_GermanTranslation),
          example_GermanTranslation = if_else(stem_id == "11_1685071495" & example_id == "11_1685071495_0",
-                                             paste(example_GermanTranslation, example_german_trans_part_1, sep = ""),
+                                             paste(example_GermanTranslation, example_german_trans_part_3, sep = ""),
                                              example_GermanTranslation))
 
 char_count |> 
@@ -479,30 +484,30 @@ stems4 <- stems4 |>
                                                           ""),
                                           stem_GermanTranslation))
 
-stems4 |> 
-  writexl::write_xlsx("data-main/stem4.xlsx")
+# stems4 |> 
+  # writexl::write_xlsx("data-main/stem4.xlsx")
 # stem_german_only |> 
 #   writexl::write_xlsx("to-translate/1_stem_german_translation.xlsx")
 
 
 
 ## German translation of the example table =====
-tr1 <- examples2 |> 
+tr1 <- examples3 |> 
   select(example_id, stem_id, example_GermanTranslation) |> 
   filter(!is.na(example_GermanTranslation)) |> 
   rename(German = example_GermanTranslation) |> 
   mutate(category = "example_GermanTranslation")
-tr2 <- examples2 |> 
+tr2 <- examples3 |> 
   select(example_id, stem_id, example_GermanTranslationVariant) |> 
   filter(!is.na(example_GermanTranslationVariant)) |> 
   rename(German = example_GermanTranslationVariant) |> 
   mutate(category = "example_GermanTranslationVariant")
-tr3 <- examples2 |> 
+tr3 <- examples3 |> 
   select(example_id, stem_id, example_crossref) |> 
   filter(!is.na(example_crossref)) |> 
   rename(German = example_crossref) |> 
   mutate(category = "example_crossref")
-tr4 <- examples2 |> 
+tr4 <- examples3 |> 
   select(example_id, stem_id, example_remark) |> 
   filter(!is.na(example_remark)) |> 
   rename(German = example_remark) |> 
