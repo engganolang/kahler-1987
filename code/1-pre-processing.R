@@ -323,7 +323,8 @@ stems4 <- stems3 |>
          stem_remark = replace(stem_remark, str_detect(stem_remark, "^\\(DIA\\)$"), "DIA"),
          stem_GermanTranslation = if_else(stem_id == "19_1685156698",
                                           str_replace_all(stem_GermanTranslation, "Hilfszahlwort", "Hilfszählwort"),
-                                          stem_GermanTranslation))
+                                          stem_GermanTranslation),
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1687614424", "oder, oder etwa; ich weiß nicht, wer weiß; vielleicht etwa; was betrifft"))
 
 
 
@@ -436,6 +437,9 @@ examples3 <- examples2 |>
          example_GermanTranslation = if_else(stem_id == "11_1685071495" & example_id == "11_1685071495_0",
                                              paste(example_GermanTranslation, example_german_trans_part_3, sep = ""),
                                              example_GermanTranslation))
+examples3 <- examples3 |> 
+  add_row(tibble_row(example_id = "9_1687614424_0", stem_id = "9_1687614424", example_form = "ũmãhã́ũ .... ũmãhã́ũ", example_GermanTranslation = "entweder ... oder"))
+
 
 char_count |> 
   select(1:4, matches("nchar_.*remark|remark")) |> 
