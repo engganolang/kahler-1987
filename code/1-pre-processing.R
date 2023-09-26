@@ -13,6 +13,12 @@ stems <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv",
   mutate(kms_Alphabet = str_to_lower(kms_Alphabet)) |> 
   arrange(as.numeric(kms_page), kms_Alphabet, as.numeric(kms_entry_no))
 
+## remove the duplicates in the stem ======
+stems <- stems |> 
+  filter(stem_id != "15_1686795377") |> ### for eo (p. 57 entry no. 2)
+  filter(stem_id != "12_1684999160") ### for pəa (p. 245 entry no. 4)
+
+
 # convert the incorrect characters into byte in UTF-8
 colmatches <- "_form|formVarian|dialect|crossref|remark|Translation"
 stems1 <- stems |> 
@@ -35,7 +41,8 @@ stems2 <- stems1 |>
          across(where(is.character), ~str_replace_all(., "(é|é)", "é")),
          across(where(is.character), ~str_replace_all(., "(ú|ú)", "ú")),
          across(where(is.character), ~str_replace_all(., "(ü|ü)", "ü")),
-         across(where(is.character), ~str_replace_all(., "(ß|ẞ)", "ß")))
+         across(where(is.character), ~str_replace_all(., "(ß|ẞ)", "ß")),
+         stem_form = str_replace_all(stem_form, "\\s*\\:$", ""))
 
 ## checking the replacement
 stems2 |> select(where(is.character)) |> filter(if_any(where(is.character), ~str_detect(., "ə̃́")))
@@ -293,6 +300,8 @@ stems4 <- stems3 |>
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "12_1687845906", "hin und wieder, ab und zu"),
          stem_homonymID = replace(stem_homonymID, stem_id == "12_1687847379", 2),
          stem_formVarian = replace(stem_formVarian, stem_id == "12_1687847379", NA),
+         stem_homonymID = replace(stem_homonymID, stem_id == "12_1685000280", 3),
+         kms_page = replace(kms_page, stem_id == "12_1685000280", 245),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1688085511", "gehe!"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1687838176", "(hebt das folgende Wort hervor)"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689179683", "wie (beim Vergleich)"),
@@ -354,6 +363,11 @@ examples <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv",
   arrange(stem_id)
 examples
 
+## remove duplicates for the example ===== 
+### for pəa (p. 245 entry no. 4)
+examples <- examples |> 
+  filter(stem_id != "12_1684999160")
+
 # convert the incorrect characters into byte in UTF-8
 colmatches <- "_form|variant|dialect|crossref|remark|Translation|etymological|loanword"
 examples1 <- examples |> 
@@ -379,7 +393,8 @@ examples2 <- examples1 |>
          across(matches("German"), ~str_replace_all(., "ī", "ï")),
          across(matches("German"), ~str_replace_all(., "ū", "ü")),
          across(matches("German"), ~str_replace_all(., "ē", "ë")),
-         across(matches("German"), ~str_replace_all(., "ō", "ö")))
+         across(matches("German"), ~str_replace_all(., "ō", "ö")),
+         example_form = str_replace_all(example_form, "ō", "oo"))
 
 # testing the replacement
 examples2 |> select(where(is.character)) |> filter(if_any(where(is.character), ~str_detect(., "ə̃́")))
@@ -436,10 +451,29 @@ examples3 <- examples2 |>
                                              example_GermanTranslation),
          example_GermanTranslation = if_else(stem_id == "11_1685071495" & example_id == "11_1685071495_0",
                                              paste(example_GermanTranslation, example_german_trans_part_3, sep = ""),
-                                             example_GermanTranslation))
+                                            example_GermanTranslation))
+
+# correction for the examples dataset ======
+
 examples3 <- examples3 |> 
   add_row(tibble_row(example_id = "9_1687614424_0", stem_id = "9_1687614424", example_form = "ũmãhã́ũ .... ũmãhã́ũ", example_GermanTranslation = "entweder ... oder"))
+examples3 <- examples3 |> 
+  mutate(example_GermanTranslation = replace(example_GermanTranslation, example_id == "10_1689598407_3", "Daumen"),
+         example_remark = replace(example_remark, example_id == "10_1689598407_3", "Francis \"nai afo\""),
+         example_GermanTranslation = replace(example_GermanTranslation, example_id == "11_1684291384_0", "(Fischnetz) geschlossen (d.h. einen Kreis gebildet?)"))
+examples3 <- examples3 |> 
+  mutate(example_GermanTranslation = replace(example_GermanTranslation,
+                                             example_id == "12_1685500258_0",
+                                             "satt, gesättigt sein"),
+         example_crossref = replace(example_crossref,
+                                    example_id == "12_1685500258_0",
+                                    "IVz15"))
+examples3 <- examples3 |> 
+  mutate(example_GermanTranslation = replace(example_GermanTranslation, example_id == "12_1686191666_1",
+                                             "(\"das zu Verbrennende\" =) das Neugeborene, Säugling, Kind bis zu 1 Monat"))
 
+
+##### character count -------------------------------------------------------
 
 char_count |> 
   select(1:4, matches("nchar_.*remark|remark")) |> 
