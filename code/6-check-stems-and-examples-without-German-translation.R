@@ -36,8 +36,10 @@ filter(stems4, stem_id %in% stems4$stem_id[!stems4$stem_id %in% stems_translatio
 ## the entries also have no remark, and no cross-reference
 filter(stems4, stem_id %in% stems4$stem_id[!stems4$stem_id %in% stems_translation_checked1$stem_id]) |> 
   filter(!is.na(stem_remark))
+# A tibble: 0 × 25
 filter(stems4, stem_id %in% stems4$stem_id[!stems4$stem_id %in% stems_translation_checked1$stem_id]) |> 
   filter(!is.na(stem_crossref))
+# A tibble: 0 × 25
 # 3. code in 1. and 2. above converges, since the IDs all appear in the two data frame as indicated by the following code:
 code1_id <- filter(stems4, stem_id %in% stems4$stem_id[!stems4$stem_id %in% stems_translation_checked1$stem_id])$stem_id
 code2_id <- stem_no_german_in_checked_file_df$stem_id
