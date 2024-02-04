@@ -1,6 +1,14 @@
 library(tidyverse)
 library(readxl)
 
+# read the label of the language for the etymology language source ID ============
+lang_df <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv",
+                     skip = 4, n_max = 24)
+transcriber <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv", 
+                         skip = 9237, n_max = 17) |> 
+  select(id, name) |> 
+  (\(.) .[-c(1:5),])()
+
 # read the stem ====
 # kstem <- read_xlsx("data-raw/primary/kahler-done-2-replaced.xlsx", range = "A30:X3358") |> 
 #   mutate(kms_Alphabet = str_to_lower(kms_Alphabet)) |> 
@@ -12,6 +20,21 @@ stems <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv",
                    locale = locale(encoding = "UTF-8", decimal_mark = ".", grouping_mark = ",")) |> 
   mutate(kms_Alphabet = str_to_lower(kms_Alphabet)) |> 
   arrange(as.numeric(kms_page), kms_Alphabet, as.numeric(kms_entry_no))
+
+stem_loanword_form <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv", 
+                                skip = 9076, 
+                                n_max = 75, 
+                                locale = locale(encoding = "UTF-8", decimal_mark = ".", grouping_mark = ","), 
+                                col_names = c("stf_id", "stem_id", "stem_loandword_form"))
+
+stem_loanword_lang <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv", 
+                                skip = 9161, 
+                                n_max = 76, 
+                                locale = locale(encoding = "UTF-8", decimal_mark = ".", grouping_mark = ","), 
+                                col_names = c("lld_id", # stands for loanword language donor ID 
+                                              "stem_id", "stem_loanword_language_donor"))
+
+
 
 ## remove the duplicates in the stem ======
 stems <- stems |> 
@@ -213,6 +236,7 @@ stems4 <- stems3 |>
          stem_crossref = replace(stem_crossref, stem_id == "11_1686195257", "aber DEC 2181 und Heyne 147/4444 èbaè 'Manihot utilissima, also Cassava oder Maniok'"),
          stem_crossref = replace(stem_crossref, stem_id == "15_1686537974", "DEC 2557 inima 'Pandanus sp div'"),
          stem_crossref = replace(stem_crossref, stem_id == "11_1684291849", "DEC 345 kadodo 'Artocarpus Gomeziana Wall.', DEC 355 kadodotok 'Artocarpus rigilda bl.', Heyne 64/1946 kadodohok 'Artocarpus rigida'"),
+         stem_remark = replace(stem_remark, stem_id == "11_1684291849", NA),
          stem_crossref = replace(stem_crossref, stem_id == "17_1684764893", "DEC 3313 und Heyne 221/5544 kila oeloe 'Terminalia Catappa L., Etagenbaum'; 51z8: Mandelbaum"),
          stem_crossref = replace(stem_crossref, stem_id == "8_1688432302", "DEC 584 ejobe, eroba 'Calophyllum spectabile Willd.', Heyne 187/5178 ejobe 'Calophyllum Inophyllum'; MOD:174f due pezzi di legno che chiamavano eióba dai quali mi dissero si poteva subito ottenere il fuoco"),
          stem_dialectVariant = replace(stem_dialectVariant, stem_id == "12_1684853273", "ekidá:uʔuo (DIA)"),
@@ -267,6 +291,7 @@ stems4 <- stems3 |>
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "10_1689608120", "Musang, Zibetkatze"),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "19_1685158316", "ausgehöhlte Kokosnuß als Trinkgefäß"),
          stem_crossref = replace(stem_crossref, stem_id == "10_1689608120", "H88:277 nafie-nafie"),
+         stem_crossref = replace(stem_crossref, stem_id == "15_1685957199", "G27 jedoch: Kopfbedeckung; die aus Pandanusblättern hergestellt wurde"),
          stem_crossref = if_else(stem_id == "9_1683946343",
                                  str_replace_all(stem_crossref, 
                                                  "\\brittan\\b", 
@@ -275,6 +300,12 @@ stems4 <- stems3 |>
          stem_crossref = if_else(stem_id == "9_1684250436",
                                  str_replace_all(stem_crossref, "lengkoewas", "langkoewas"),
                                  stem_crossref),
+         stem_crossref = str_replace_all(stem_crossref,
+                                         "DEC 83o efok; epok",
+                                         "DEC 830 efok, epok"),
+         stem_crossref = str_replace_all(stem_crossref,
+                                         "Heyne 21\\/663 efo; epoh",
+                                         "Heyne 21/663 efo, epoh"),
          stem_formVarian = replace(stem_formVarian, stem_id == "12_1684850663", "ekabá:édo"),
          stem_remark = replace(stem_remark, stem_id == "12_1684850663", "Papaja?, H16 èkapèlo 'een papegaaisoort'"),
          stem_crossref = replace(stem_crossref, stem_id == "11_1683864936", "vgl uhói 'kinderreiche Frau'"),
@@ -312,6 +343,7 @@ stems4 <- stems3 |>
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '11_1688357328', '(Blatt)Unterlage (fürs Essen)'),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "12_1688366718", "Sehne des Bogens, aus Bast"),
          stem_remark = replace(stem_remark, stem_id == "12_1688366718", "(Keuning 192 Fußnote 11: Deze 'schichten ende boghen' [im Journal der Reise von de Houtman und de Keyser, 1596] moeten wel op een vergissing berusten. In geen enkel ander bericht wordt ooit voor Enggano van pijl en boog gerept. Vermoedelijk heeft men op een afstand de werpsperen, waarvan de Engganees meestal enige met zich meedroeg, voor pijl en boog aangezien. Dgl bei MOD 243"),
+         stem_crossref = replace(stem_crossref, stem_id == "12_1688366718", NA),
          stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == '12_1687834812', 'dann (kann den einem irrealen Konditionalsatz nachgestellten Hauptsatz einleiten)'),
          stem_remark = if_else(stem_id == '19_1683781496',
                                str_extract(stem_GermanTranslation, 'Sim.+(?=\\)\\sBruchs)'),
@@ -333,7 +365,28 @@ stems4 <- stems3 |>
          stem_GermanTranslation = if_else(stem_id == "19_1685156698",
                                           str_replace_all(stem_GermanTranslation, "Hilfszahlwort", "Hilfszählwort"),
                                           stem_GermanTranslation),
-         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1687614424", "oder, oder etwa; ich weiß nicht, wer weiß; vielleicht etwa; was betrifft"))
+         stem_GermanTranslation = replace(stem_GermanTranslation, stem_id == "9_1687614424", "oder, oder etwa; ich weiß nicht, wer weiß; vielleicht etwa; was betrifft")) |> 
+  mutate(stem_crossref = if_else(stem_id == "11_1684827868" & stem_form == "eakaruba",
+                                 str_replace(stem_crossref, "^\\§ 10e\\: \\-r\\-", "§ 10e: -r- < n(i)- (UAN) ; warum nicht < Rumaq? (PAN)"),
+                                 stem_crossref),
+         stem_etymological_language_donor = if_else(stem_id == "11_1684827868" & stem_form == "eakaruba",
+                                                    NA,
+                                                    stem_etymological_language_donor),
+         stem_etymological_form = if_else(stem_id == "11_1684827868" & stem_form == "eakaruba",
+                                          NA,
+                                          stem_etymological_form)) |> 
+  mutate(stem_dialectVariant = if_else(stem_id == "19_1685198085",
+                                       str_replace(stem_dialectVariant, "(DIA)", "\\1, selten 'rarely'"),
+                                       stem_dialectVariant),
+         stem_GermanTranslationVariant = if_else(stem_id == "19_1685198085",
+                                       NA,
+                                       stem_GermanTranslationVariant)) |> 
+  mutate(stem_GermanTranslation = if_else(stem_id == "12_1684853273",
+                                          str_replace(stem_GermanTranslation, "^(.)", "(\"d Eingeschlossene\" =) \\1"),
+                                          stem_GermanTranslation),
+         stem_GermanTranslationVariant = if_else(stem_id == "12_1684853273",
+                                                 NA,
+                                                 stem_GermanTranslationVariant))
 
 
 
@@ -467,10 +520,46 @@ examples3 <- examples3 |>
                                              "satt, gesättigt sein"),
          example_crossref = replace(example_crossref,
                                     example_id == "12_1685500258_0",
-                                    "IVz15"))
+                                    "IVz15")) |> 
+  mutate(example_variant = replace(example_variant,
+                                   example_GermanTranslationVariant == "ukitai",
+                                   "ukitai"),
+         example_GermanTranslationVariant = replace(example_GermanTranslationVariant,
+                                                    example_GermanTranslationVariant == "ukitai",
+                                                    NA))
 examples3 <- examples3 |> 
   mutate(example_GermanTranslation = replace(example_GermanTranslation, example_id == "12_1686191666_1",
-                                             "(\"das zu Verbrennende\" =) das Neugeborene, Säugling, Kind bis zu 1 Monat"))
+                                             "(\"das zu Verbrennende\" =) das Neugeborene, Säugling, Kind bis zu 1 Monat")) |> 
+  mutate(example_crossref = str_replace(example_crossref, "(?<=H88\\:28)of über", "0")) |> 
+  mutate(example_crossref = if_else(example_id == "12_1685499937_1" & example_form == "eadeda",
+                                    str_replace(example_crossref, "(?<=112z18)(\\:)", "\\1 \"Glück\""),
+                                    example_crossref)) |> 
+  mutate(example_GermanTranslation = if_else(example_GermanTranslation == "die Früchte sitzen dicht",
+                                             str_replace(example_GermanTranslation, "(sitzen)", "(sind gut angeordnet =) \\1"),
+                                             example_GermanTranslation),
+         example_GermanTranslationVariant = if_else(example_GermanTranslationVariant=="sind gut angeordnet",
+                                                    NA,
+                                                    example_GermanTranslationVariant)) |> 
+  mutate(example_GermanTranslation = if_else(example_id == "12_1684293179_2" & example_GermanTranslationVariant == "Anspitzensmittel",
+                                             str_replace(example_GermanTranslation, "(Messer)", "(Anspitzensmittel =) \\1"),
+                                             example_GermanTranslation),
+         example_GermanTranslationVariant = replace(example_GermanTranslationVariant, example_id == "12_1684293179_2", NA)) |> 
+  mutate(example_GermanTranslation = if_else(example_id == "12_1684393396_3" & example_GermanTranslationVariant == "Verschwindensort",
+                                             str_replace(example_GermanTranslation, "(^.+$)", "(\"Verschwindensort\" =) \\1"),
+                                             example_GermanTranslation),
+         example_GermanTranslationVariant = replace(example_GermanTranslationVariant, example_id == "12_1684393396_3", NA)) |> 
+  mutate(example_GermanTranslation = if_else(example_id == "11_1684834366_4" & example_GermanTranslationVariant == "das Getauschte der Leute sind Waren",
+                                             str_replace(example_GermanTranslation, "(^.+$)", "das Vermengte (= Getauschte) der Leute sind Waren"),
+                                             example_GermanTranslation),
+         example_GermanTranslationVariant = replace(example_GermanTranslationVariant, example_id == "11_1684834366_4", NA)) |> 
+  mutate(example_GermanTranslation = if_else(example_id == "12_1683688193_0",
+                                             example_GermanTranslationVariant,
+                                             example_GermanTranslation),
+         example_GermanTranslationVariant = if_else(example_id == "12_1683688193_0",
+                                                    NA,
+                                                    example_GermanTranslationVariant)) |> 
+  mutate(example_GermanTranslation = replace(example_GermanTranslation, example_id == "8_1685083404_2", "(\"Zuckerrohrblatt\" =) Schwert, damasziertes Haumesser"),
+         example_GermanTranslationVariant = replace(example_GermanTranslationVariant, example_id == "8_1685083404_2", NA))
 
 
 ##### character count -------------------------------------------------------

@@ -1,8 +1,10 @@
-# Access google drive folder in the Enggano shared drive
+# NOTE: This code file records the process to prepare the STEM/ROOT data which English translation from German to be checked.
+
 library(googledrive)
 library(googlesheets4)
 library(tidyverse)
 
+# Access google drive folder in the Enggano shared drive
 source("code/0-directory.R")
 
 # list the files in the Kahler dictionary translation folder id
@@ -34,6 +36,7 @@ ex_to_check1 <- ex_to_check |>
                                 is.na(German_noun_and_all), 
                               German, 
                               German_noun_and_all))
+
 
 ## BATCH 1: filter the to-check only and add the example form =============
 # ex_to_check2 <- ex_to_check1 |> 
@@ -77,3 +80,12 @@ ex_to_check2
  
 ## now save the stem translation tibble to the created spreadsheet (BATCH 2)
 # sheet_write(ex_to_check2, ss = '1eAW-zXLHVfgHkDfTkCr3GcH19wDKwe6P8unaW3e6kPc', sheet = 'Sheet1')
+
+
+## save (only one time) the example data the translation to check to be processed/used in the script `5-combine-original-and-checked...`
+# ex_to_check1 |>
+#   left_join(examples3 |> select(1:3)) |>
+#   mutate(German_correction = NA, English, English_correction = NA) |>
+#   select(-German) |> 
+#   rename(German = German_all) |> 
+#   write_rds(file = "data-raw/ex_to_check.rds")
