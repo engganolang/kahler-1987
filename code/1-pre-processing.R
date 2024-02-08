@@ -21,25 +21,11 @@ stems <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv",
   mutate(kms_Alphabet = str_to_lower(kms_Alphabet)) |> 
   arrange(as.numeric(kms_page), kms_Alphabet, as.numeric(kms_entry_no))
 
-stem_loanword_form <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv", 
-                                skip = 9076, 
-                                n_max = 75, 
-                                locale = locale(encoding = "UTF-8", decimal_mark = ".", grouping_mark = ","), 
-                                col_names = c("stf_id", "stem_id", "stem_loandword_form"))
-
-stem_loanword_lang <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv", 
-                                skip = 9161, 
-                                n_max = 76, 
-                                locale = locale(encoding = "UTF-8", decimal_mark = ".", grouping_mark = ","), 
-                                col_names = c("lld_id", # stands for loanword language donor ID 
-                                              "stem_id", "stem_loanword_language_donor"))
-
-
-
 ## remove the duplicates in the stem ======
 stems <- stems |> 
   filter(stem_id != "15_1686795377") |> ### for eo (p. 57 entry no. 2)
-  filter(stem_id != "12_1684999160") ### for pəa (p. 245 entry no. 4)
+  filter(stem_id != "12_1684999160") |> ### for pəa (p. 245 entry no. 4)
+  filter(stem_id != "17_1688913580") ### for nĩkã (p. 204 entry no. 6)
 
 
 # convert the incorrect characters into byte in UTF-8
@@ -417,9 +403,11 @@ examples <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv",
 examples
 
 ## remove duplicates for the example ===== 
-### for pəa (p. 245 entry no. 4)
 examples <- examples |> 
-  filter(stem_id != "12_1684999160")
+  filter(stem_id != "15_1686795377") |> ### for eo (p. 57 entry no. 2)
+  filter(stem_id != "12_1684999160") |> ### for pəa (p. 245 entry no. 4)
+  filter(stem_id != "17_1688913580") |> ### for nĩkã (p. 204 entry no. 6)
+  filter(!example_id %in% c("9_1687837975_3", "9_1687837975_4")) ### for the stem ʔuʔua (p. 290 entry no. 2)
 
 # convert the incorrect characters into byte in UTF-8
 colmatches <- "_form|variant|dialect|crossref|remark|Translation|etymological|loanword"
