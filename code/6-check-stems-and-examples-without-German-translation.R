@@ -50,13 +50,16 @@ all(code1_id %in% code2_id)
 
 # 4. Check which entries in `stems4` that:
 ## a. has NO GERMAN TRANSLATION of the stem, BUT
-## b. has entries for the remark, and then 
+
+## b. has entries for the remark 
 stem_in_stem4_without_german_but_with_remark <- stems4 |> 
   filter(is.na(stem_GermanTranslation)) |> 
-  filter(!is.na(stem_remark))
+  filter(!is.na(stem_remark)) 
+stem_in_stem4_without_german_but_with_remark 
 ### there are only 51 entries for the REMARK
-stem_in_stem4_without_german_but_with_remark
-## c. check if these REMARK entries also appear in the `stems_translation_checked1`
+# A tibble: 51 × 25
+
+## c. then, check if these REMARK entries also appear in the `stems_translation_checked1`
 stems_translation_checked1 |> 
   filter(stem_id %in% stem_in_stem4_without_german_but_with_remark$stem_id) |> 
   filter(category == "stem_remark")
@@ -65,13 +68,16 @@ stems_translation_checked1 |>
 
 # 5. Check which entries in `stems4` that:
 ## a. has NO GERMAN TRANSLATION of the stem, BUT
-## b. has entries for the crossref, and then 
+
+## b. has entries for the crossref 
 stem_in_stem4_without_german_but_with_crossref <- stems4 |> 
   filter(is.na(stem_GermanTranslation)) |> 
   filter(!is.na(stem_crossref))
-### there are only 212 entries
 stem_in_stem4_without_german_but_with_crossref
-## c. check if these CROSSREFERENCE entries also appear in the `stems_translation_checked1`
+### there are only 212 entries
+# A tibble: 212 × 25
+
+## c. then, check if these CROSSREFERENCE entries also appear in the `stems_translation_checked1`
 stems_translation_checked1 |> 
   filter(stem_id %in% stem_in_stem4_without_german_but_with_crossref$stem_id) |> 
   filter(category == "stem_crossref")
@@ -105,9 +111,9 @@ ex_no_german_for_form_id <- ex_no_german_for_form$example_id
 #### 2. from `ex_no_german_for_form`, check if there are entries for the GermanVariant and crosscheck with the checked translation file
 ex_no_german_has_germanvariant <- filter(ex_no_german_for_form, !is.na(example_GermanTranslationVariant))
 ex_no_german_has_germanvariant
-# A tibble: 1 × 20 <- only one case
+# A tibble: 0 × 20 <- zero case
 filter(ex_all_translation_checked3, example_id  %in% ex_no_german_has_germanvariant$example_id) |> filter(category == "example_GermanTranslationVariant")
-# A tibble: 1 × 12 <- one case match! YES, the GermanTransVariant in `ex_no_german_has_germanvariant` has been checked
+# A tibble: 0 × 12 <- zero case match! YES, the GermanTransVariant in `ex_no_german_has_germanvariant` has been checked
 
 
 #### 3. from `ex_no_german_for_form`, check if there are entries for the Remark and crosscheck with the checked translation file
@@ -121,9 +127,9 @@ filter(ex_all_translation_checked3, example_id  %in% ex_no_german_has_remark$exa
 #### 4. from `ex_no_german_for_form`, check if there are entries for the CROSSREF and crosscheck with the checked translation file
 ex_no_german_has_crossref <- filter(ex_no_german_for_form, !is.na(example_crossref))
 ex_no_german_has_crossref
-# A tibble: 15 × 20 <- fifteen cases
+# A tibble: 14 × 20 <- fourteen cases
 filter(ex_all_translation_checked3, example_id  %in% ex_no_german_has_crossref$example_id) |> filter(category == "example_crossref")
-# A tibble: 15 × 12 <- fiften cases match! YES, the example_crossref in `ex_no_german_has_crossref` has been checked
+# A tibble: 14 × 12 <- fourteen cases match! YES, the example_crossref in `ex_no_german_has_crossref` has been checked
 
 ### SUMMARY NOTES
 #### the data in `ex_form_translation` (example_form that has German translation) from output of codes in `5-combine-original-...`
