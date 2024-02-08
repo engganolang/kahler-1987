@@ -20,8 +20,8 @@ stems_translation_checked1 <- stems_translation_checked1 |>
 stems_translation_root <- stems_translation_checked1 |> 
   filter(category == "stem_GermanTranslation") |> 
   select(-category) |> 
-  rename(stem_GermanTranslation_DE = German_all) |> 
-  rename(stem_English = English_all)
+  rename(stem_DE = German_all) |> 
+  rename(stem_EN = English_all)
 ### CHECK if the stem_id of the original database is the same with (i.e. present in) the checked translation ======
 all(sort(pull(filter(stems4, !is.na(stem_GermanTranslation)), stem_id)) ==
     sort(stems_translation_root$stem_id))
@@ -35,8 +35,8 @@ stems_translation_variant <- stems_translation_checked1 |>
   # and also for stem ID 12_1684853273 ("d Eingeschlossene" 'the trapped'), which has been combined into the stem_GermanTranslation
   filter(!Indonesian %in% c("yang terjebak", "jarang")) |> 
   select(-category) |> 
-  rename(stem_GermanTranslationVariant_DE = German_all) |> 
-  rename(stem_EnglishVariant = English_all)
+  rename(stem_variant_DE = German_all) |> 
+  rename(stem_variant_EN = English_all)
 ### CHECK if the stem_id of the original database is the same with (i.e. present in) the checked translation ======
 all(sort(pull(filter(stems4, !is.na(stem_GermanTranslationVariant)), stem_id)) ==
       sort(stems_translation_variant$stem_id))
@@ -155,7 +155,7 @@ all(sort(pull(filter(stems4, !is.na(stem_crossref)), stem_id)) ==
 # [1] TRUE
 
 # B. EXAMPLES, DERIVED FORMS ================
-ex_to_check <- read_rds("data-raw/ex_to_check.rds")
+ex_to_check <- read_rds("data-raw/ex_to_check.rds") # ex_to_check.rds is generated once from the script in `3-read-the-translation-sheet-EXAMPLE.R`
 ex_to_check_missing <- ex_to_check |> 
   filter(is.na(BATCH_CHECK)) |> # retrieve only data that I did not include in the checked items
   select(1:6, example_entry_no, example_form, category, batch = BATCH_CHECK, German_all = German, English_all = English) |> 
@@ -270,17 +270,24 @@ all(ex_form_orig == ex_form_checked) # (FIXED)
 # Warning message:
 #   In ex_form_orig == ex_form_checked :
 #   longer object length is not a multiple of shorter object length
-### CHECK which id from the original is not in the translation database ============
+### CHECK which example IDs in the original is not in the translation database ============
 missing_id_ex <- setdiff(ex_id_orig, ex_id_checked)
 missing_id_ex
-### CHECK which form from the original is not in the translation database ==========
+# character(0)
+
+### retrieve the example_form whose ID is missing in the checked translation database and check if these forms available in the checked translation database
+example_form_whose_id_not_in_the_checked_translation <- filter(examples3, example_id %in% missing_id_ex)$example_form
+example_form_whose_id_not_in_the_checked_translation # (FIXED; they are entered into as duplicates)
+# character(0)
+
+### CHECK which example_form in the original is not in the translation database ==========
 missing_form_ex <- setdiff(ex_form_orig, ex_form_checked)
 missing_form_ex
 # [1] "ũmãhã́ũ .... ũmãhã́ũ" (FIXED!)
 # VERY GOOD NEWS! Only one form and that is expected given this 'either ... or' form is added later. (FIXED)
 ### CHECK which form from the translation database is not in the original ===============
 setdiff(ex_form_checked, ex_form_orig)
-# character(0) VERY GOOD NEWS! All example form which translation has been checked is available in the original, except the form for 'either ... or' above.
+# character(0) VERY GOOD NEWS! All example form which translation has been checked is available in the original, except the form for 'either ... or' above (which is also FIXED already).
 #### (NO NEED) get the example word-forms which are not in the checked translation (to be rechecked in the check translation)
 #### the rationale is that the missing form could be the results of editing the original example form (e.g., misplacement, or later addition, etc.)
 # missing_id_ex_form <- examples3 |> 
