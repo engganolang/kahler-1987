@@ -4,7 +4,7 @@ source("code/4-pre-processing-the-checked-translation.R")
 source('code/1-pre-processing.R')
 
 # Custom fixing
-stems_translation_checked1 <- stems_translation_checked1 |> 
+stems_translation_checked2 <- stems_translation_checked1 |> 
   mutate(English_all = str_replace_all(English_all,
                                        "(§+)(\\d)",
                                        "\\1 \\2")) |> 
@@ -13,22 +13,60 @@ stems_translation_checked1 <- stems_translation_checked1 |>
                               German_all),
          English_all = if_else(stem_id == "11_1684827868" & stem_form == "eakaruba" & category == "stem_crossref",
                               str_replace(English_all, "^\\§ 10e\\: \\-r\\-", "§ 10e: -r- < n(i)- (UAN) ; why not < Rumaq? (PAN)"),
-                              English_all))
+                              English_all)) |> 
+  mutate(stem_form = str_replace_all(stem_form, "\\s*\\:$", "")) |> 
+  # fix alternative gender suffix -r and -s in the German translation
+  mutate(German_all = if_else(str_detect(German_all, "\\(r\\,\\s?s\\)"),
+                              str_replace_all(German_all, "\\b(jene|welche|diese|andere|halbe)\\s*(\\(r)\\,\\s*(s\\))", "\\1\\2/\\3"),
+                              German_all)) |> 
+  # add space between comma and semicolon
+  mutate(English_all = str_replace_all(English_all, "(?<=[^\\s])([;,])", " \\1")) |> 
+  # replace 3.P/2.P/1.P to 3rd/2nd/1st Person
+  mutate(English_all = str_replace_all(English_all, "\\b3\\.P\\b", "3rd Person"),
+         English_all = str_replace_all(English_all, "\\b3\\.[Pp][Ll]\\b", "3rd Person Plural"),
+         English_all = str_replace_all(English_all, "\\b3rd\\s[Pp][Ll]\\b", "3rd Person Plural"),
+         English_all = str_replace_all(English_all, "\\b2\\.P\\b", "2nd Person"),
+         English_all = str_replace_all(English_all, "^PL(?=\\sarticle\\b)", "Plural"),
+         English_all = str_replace_all(English_all, "\\b2\\.[pP][Ll]\\b", "2nd Person Plural"),
+         English_all = str_replace_all(English_all, "\\b2nd\\spl\\b", "2nd Person Plural"),
+         English_all = str_replace_all(English_all, "\\bPS\\b", "Possessive suffix"),
+         English_all = str_replace_all(English_all, "\\b1\\.P\\b", "1st Person"),
+         English_all = str_replace_all(English_all, "\\b1\\.[Pp][Ll]\\sex\\b", "1st Person Plural exclusive"),
+         English_all = str_replace_all(English_all, "\\b2nd\\sP\\b", "2nd Person"),
+         English_all = str_replace_all(English_all, "\\b1st\\sP\\b", "1st Person"),
+         English_all = str_replace_all(English_all, "\\b1st\\spl\\b", "1st Person Plural"),
+         English_all = str_replace_all(English_all, "prāfix", "prefix"),
+         English_all = str_replace_all(English_all, "(\\b3\\.SG\\b|3rd\\sSG\\b)", "3rd Person Singular"),
+         English_all = str_replace_all(English_all, "1st PL in\\b", "1st Person Plural inclusive"),
+         English_all = str_replace_all(English_all, "\\bfor the SG\\b", "for the Singular"),
+         English_all = str_replace_all(English_all, "\\b1st\\sPL\\b", "1st Person Plural"),
+         English_all = str_replace_all(English_all, "^We\\s\\(ex\\)\\s", "We (exclusive) "),
+         English_all = str_replace_all(English_all, "(\\bf\\.)sg\\.", "\\1 Singular"),
+         English_all = str_replace_all(English_all, "3\\.sg\\.", "3rd Person Singular"),
+         English_all = str_replace_all(English_all, "sg\\. or pl\\.$", "Singular or Plural"),
+         English_all = str_replace_all(English_all, "3rd pl\\.", "3rd Person Plural"),
+         English_all = str_replace_all(English_all, "\\bpl\\.", "Plural")) |> 
+  # remove the stem_GermanTranslationVariant for "pudu" (ID 19_1685198085)
+  # because that translation should be for dialectal usage remark, of rarely used dialectal variant
+  # and also for stem ID 12_1684853273 ("d Eingeschlossene" 'the trapped'), which has been combined into the stem_GermanTranslation
+  filter(stem_id != "19_1685198085")
 
 # A. ROOT/STEM =============
 ## 1. ROOT data and its translations that have been checked =======
-stems_translation_root <- stems_translation_checked1 |> 
+stems_translation_root <- stems_translation_checked2 |> 
   filter(category == "stem_GermanTranslation") |> 
   select(-category) |> 
   rename(stem_DE = German_all) |> 
-  rename(stem_EN = English_all)
+  rename(stem_EN = English_all) |> 
+  rename(stem_IDN = Indonesian) |> 
+  rename(stem_RMK = Remark)
 ### CHECK if the stem_id of the original database is the same with (i.e. present in) the checked translation ======
 all(sort(pull(filter(stems4, !is.na(stem_GermanTranslation)), stem_id)) ==
     sort(stems_translation_root$stem_id))
 # [1] TRUE
 
 ## 2. ROOT VARIANT data and its translations that have been checked =======
-stems_translation_variant <- stems_translation_checked1 |> 
+stems_translation_variant <- stems_translation_checked2 |> 
   filter(category == "stem_GermanTranslationVariant") |> 
   # remove the stem_GermanTranslationVariant for "pudu" (ID 19_1685198085)
   # because that translation should be for dialectal usage remark, of rarely used dialectal variant
@@ -36,7 +74,9 @@ stems_translation_variant <- stems_translation_checked1 |>
   filter(!Indonesian %in% c("yang terjebak", "jarang")) |> 
   select(-category) |> 
   rename(stem_variant_DE = German_all) |> 
-  rename(stem_variant_EN = English_all)
+  rename(stem_variant_EN = English_all) |> 
+  rename(stem_variant_IDN = Indonesian) |> 
+  rename(stem_variant_RMK = Remark)
 ### CHECK if the stem_id of the original database is the same with (i.e. present in) the checked translation ======
 all(sort(pull(filter(stems4, !is.na(stem_GermanTranslationVariant)), stem_id)) ==
       sort(stems_translation_variant$stem_id))
@@ -44,7 +84,7 @@ all(sort(pull(filter(stems4, !is.na(stem_GermanTranslationVariant)), stem_id)) =
 
 
 ## 3. ROOT REMARK data and its translations that have been checked =======
-stems_translation_remark <- stems_translation_checked1 |> 
+stems_translation_remark <- stems_translation_checked2 |> 
   filter(category == "stem_remark") |> 
   select(-category) |> 
   rename(stem_remark_DE = German_all) |> 
@@ -91,7 +131,10 @@ stems_translation_remark <- stems_translation_checked1 |>
                                   str_replace_all(stem_remark_EN,
                                                   "(<\\/form>) \\(fig\\.12 on S\\.152\\) '(cap adorned with feathers)'",
                                                   " (fig.12 on S.152) <gloss>\\2</gloss>\\1"),
-                                  stem_remark_EN))
+                                  stem_remark_EN)) |> 
+  mutate(stem_remark_EN = replace(stem_remark_EN, 
+                                  stem_id == "11_1684912975", 
+                                  "ML alu-alu, Barrakuda, Sphyraena obtusata or Sphyraena jello CV"))
 ### CHECK if the stem_id of the original database is the same with (i.e. present in) the checked translation ======
 all(sort(pull(filter(stems4, !is.na(stem_remark)), stem_id)) ==
       sort(stems_translation_remark$stem_id))
@@ -115,10 +158,14 @@ stems_translation_remark <- stems_translation_remark |>
 all(sort(pull(filter(stems4, !is.na(stem_remark)), stem_id)) ==
       sort(stems_translation_remark$stem_id))
 # [1] TRUE
+stems_translation_remark <- stems_translation_remark |> 
+  rename(stem_remark_IDN = Indonesian) |> 
+  rename(stem_remark_RMK = Remark) |> 
+  mutate(stem_remark_EN = if_else(is.na(stem_remark_EN), stem_remark_DE, stem_remark_EN))
 
 
 ## 4. ROOT CROSSREF data and its translations that have been checked =======
-stems_translation_crossref <- stems_translation_checked1 |> 
+stems_translation_crossref <- stems_translation_checked2 |> 
   filter(category == "stem_crossref") |> 
   select(-category) |> 
   rename(stem_crossref_DE = German_all) |> 
@@ -128,8 +175,17 @@ stems_translation_crossref <- stems_translation_checked1 |>
                                             "(?<=\\d)Z(?=\\d)",
                                             "z")) |> 
   mutate(stem_crossref_EN = str_replace_all(stem_crossref_EN,
-                                            "(?<=\\d)o",
-                                            "0"))
+                                            "((?<=\\d)o|o(?=\\d))",
+                                            "0")) |> 
+  mutate(stem_crossref_DE = str_replace_all(stem_crossref_DE,
+                                            "(?<=\\d)Z(?=\\d)",
+                                            "z")) |> 
+  mutate(stem_crossref_DE = str_replace_all(stem_crossref_DE,
+                                            "((?<=\\d)o|o(?=\\d))",
+                                            "0")) |> 
+  mutate(stem_crossref_DE = str_replace_all(stem_crossref_DE, "(?<=[^\\s])\\;", " ;"),
+         stem_crossref_EN = str_replace_all(stem_crossref_EN, "(?<=[^\\s])\\;", " ;"),
+         stem_crossref_EN = str_replace_all(stem_crossref_EN, "\\bDgl", "and the like"))
 ### CHECK if the stem_id of the original database is the same with the checked translation ======
 all(sort(pull(filter(stems4, !is.na(stem_crossref)), stem_id)) ==
       sort(stems_translation_crossref$stem_id))
@@ -153,6 +209,10 @@ stems_translation_crossref <- stems_translation_crossref |>
 all(sort(pull(filter(stems4, !is.na(stem_crossref)), stem_id)) ==
       sort(stems_translation_crossref$stem_id))
 # [1] TRUE
+stems_translation_crossref <- stems_translation_crossref |> 
+  rename(stem_crossref_IDN = Indonesian) |> 
+  rename(stem_crossref_RMK = Remark)
+
 
 # B. EXAMPLES, DERIVED FORMS ================
 ex_to_check <- read_rds("data-raw/ex_to_check.rds") # ex_to_check.rds is generated once from the script in `3-read-the-translation-sheet-EXAMPLE.R`
@@ -163,6 +223,7 @@ ex_to_check_missing <- ex_to_check |>
 
 #### Add English translation for some common German abbreviation ======
 ex_to_check_missing1 <- ex_to_check_missing |> 
+  filter(example_id != "17_1688913580_3") |> ### remove duplicate for nĩkã (p. 204 entry no. 6)
   mutate(English_all = if_else(str_detect(German_all, "\\bdgl\\b") & is.na(English_all),
                                str_replace(German_all, "\\bdgl\\b", "and the like"),
                                English_all),
@@ -296,7 +357,18 @@ setdiff(ex_form_checked, ex_form_orig)
 #### re-check the missing_id_ex_form in the checked translation
 # ex_all_translation_checked1 |> filter(example_form %in% missing_id_ex_form)
 
+### CONCEPT joining ======
+ex_form_concept <- ex_concept |> 
+  filter(category == "example_GermanTranslation") |> 
+  select(example_id, stem_id, ex_concept = Concept)
+ex_form_translation <- ex_form_translation |> 
+  left_join(ex_form_concept)
+
 ## 2. EXAMPLE VARIANT data and its translations that have been checked =======
+ex_var_concept <- ex_concept |> 
+  filter(category == "example_GermanTranslationVariant" & 
+           example_id == "12_1683777180_0") |> 
+  select(example_id, stem_id, ex_variant_concept = Concept)
 ex_variant_translation <- ex_all_translation_checked3 |> 
   filter(category == "example_GermanTranslationVariant") |> 
   filter(!German_all %in% c("sind gut angeordnet", "Anspitzensmittel", "Verschwindensort", "das Getauschte der Leute sind Waren", "Zuckerrohrblatt")) |> 
@@ -312,6 +384,9 @@ ex_var_form_checked <- ex_variant_translation |>
 setdiff(ex_var_form_orig, ex_var_form_checked)
 # [1] "epanãũ ubaha:u" <- (FIXED) this one has been moved to example_GermanTranslation because the German refers to the translation of this form, but the transcriber put the variant form in the example_GermanTranslationVariant
 # character(0) <- after being FIXED
+### CONCEPT joining =========
+ex_variant_translation <- ex_variant_translation |> 
+  left_join(ex_var_concept)
 
 ## 3. EXAMPLE REMARK data and its translations that have been checked =======
 ex_remark_translation <- ex_all_translation_checked3 |> 
@@ -361,6 +436,14 @@ ex_remark_form_checked <- ex_all_translation_checked3 |>
 setdiff(ex_remark_form_orig, ex_remark_form_checked)
 # character(0) <- all match now!
 
+### CONCEPT joining ======
+ex_remark_concept <- ex_concept |> 
+  filter(category == "example_remark") |> 
+  select(example_id, stem_id, ex_remark_concept = Concept)
+ex_remark_translation <- ex_remark_translation |> 
+  left_join(ex_remark_concept)
+
+
 ## 4. EXAMPLE CROSSREF data and its translations that have been checked =======
 ex_crossref_translation <- ex_all_translation_checked3 |> 
   filter(category == "example_crossref") |> 
@@ -409,6 +492,13 @@ ex_crossref_form_checked <- ex_all_translation_checked3 |>
 setdiff(ex_crossref_form_orig, ex_crossref_form_checked)
 # character(0) <- all match now!
 
+### CONCEPT joining ======
+ex_crossref_concept <- ex_concept |> 
+  filter(category == "example_crossref") |> 
+  select(example_id, stem_id, ex_crossref_concept = Concept)
+ex_crossref_translation <- ex_crossref_translation |> 
+  left_join(ex_crossref_concept)
+
 
 # C. EXAMPLES REMAINING COLUMNS ===========
 examples3_rests <- examples3 |> 
@@ -424,6 +514,8 @@ examples3_rests <- examples3 |>
          example_source_form_homonymID, 
          example_dialect_variant)
 
+## C1. combining `examples3` with `ex_form/remark/crossref/variant_translation`
+
 # D. STEMS REMAINING COLUMNS ==============
 stems4_rests <- stems4 |> 
   select(1:5,
@@ -437,3 +529,13 @@ stems4_rests <- stems4 |>
          stem_loanword_language_donor,
          stem_source_form,
          stem_source_form_homonymID)
+
+## D1. combining `stems4` with `stems_translation_root/variant/remark/crossref`
+stem_all <- stems4 |> 
+  left_join(stems_translation_root) |> 
+  left_join(stems_translation_variant) |> 
+  left_join(stems_translation_remark) |> 
+  left_join(stems_translation_crossref) |> 
+  arrange(kms_Alphabet, kms_page, kms_entry_no) |> 
+  mutate(stem_etym_DE = if_else(!is.na(stem_etym_form_German), stem_etym_form_German, NA),
+         stem_etym_EN = if_else(stem_etym_DE == "\"der zu Angelnde\"", "the one to be fished", NA))
