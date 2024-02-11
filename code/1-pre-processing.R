@@ -361,6 +361,7 @@ stems4 <- stems3 |>
          stem_etymological_form = if_else(stem_id == "11_1684827868" & stem_form == "eakaruba",
                                           NA,
                                           stem_etymological_form)) |> 
+  mutate(stem_etymological_form  = replace(stem_etymological_form, stem_id == "9_1685625844", "kawil·ən")) |> 
   mutate(stem_dialectVariant = if_else(stem_id == "19_1685198085",
                                        str_replace(stem_dialectVariant, "(DIA)", "\\1, selten 'rarely'"),
                                        stem_dialectVariant),
@@ -549,6 +550,18 @@ examples3 <- examples3 |>
   mutate(example_GermanTranslation = replace(example_GermanTranslation, example_id == "8_1685083404_2", "(\"Zuckerrohrblatt\" =) Schwert, damasziertes Haumesser"),
          example_GermanTranslationVariant = replace(example_GermanTranslationVariant, example_id == "8_1685083404_2", NA))
 
+###### for stem_id "15_1684204179", example_id "15_1684204179_5" and "15_1684204179_6"
+ex_form_15_1684204179_5 <- examples3 |> filter(example_id == "15_1684204179_5") |> pull(example_form)
+ex_form_15_1684204179_6 <- examples3 |> filter(example_id == "15_1684204179_6") |> pull(example_form)
+ex_variant_15_1684204179_5 <- examples3 |> filter(example_id == "15_1684204179_5") |> pull(example_variant)
+ex_variant_15_1684204179_6 <- examples3 |> filter(example_id == "15_1684204179_6") |> pull(example_variant)
+ex_variant_combined <- str_c(ex_variant_15_1684204179_5, " ", ex_form_15_1684204179_6, " ; ", ex_variant_15_1684204179_6, sep = "")
+
+examples3 <- examples3 |> 
+  mutate(example_form = replace(example_form, example_id == "15_1684204179_6", ex_form_15_1684204179_5),
+         example_variant = replace(example_variant, example_id == "15_1684204179_6", ex_variant_combined)) |> 
+  # now remove example_id "15_1684204179_5"
+  filter(example_id != "15_1684204179_5")
 
 ##### character count -------------------------------------------------------
 

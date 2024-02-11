@@ -12,8 +12,11 @@ kahler_dict_files <- drive_ls(path = as_id(kahler_dict_folder))
 kahler_dict_files
 
 # get the stem translation that has been checked
-stems_translation_checked <- drive_get("1_stem_german_translation-to-check") |> 
-  read_sheet()
+# stems_translation_checked <- drive_get("1_stem_german_translation-to-check") |> 
+#   read_sheet() |> 
+#   write_rds("data-raw/1_stem_german_translation-to-check.rds")
+stems_translation_checked <- read_rds("data-raw/1_stem_german_translation-to-check.rds")
+
 stems_translation_checked1 <- stems_translation_checked |> # combine the corrected with the original German columns
   mutate(German_all = if_else(is.na(German_corrected), German, German_corrected)) |> 
   select(-German, -German_corrected) |> # combine the corrected with the original English columns
@@ -52,13 +55,30 @@ stems_translation_checked1 <- stems_translation_checked |> # combine the correct
                                  category == "stem_crossref",
                                "DEC 345 kadodo 'Artocarpus Gomeziana Wall.', DEC 355 kadodotok 'Artocarpus rigilda bl.', Heyne 64/1946 kadodohok 'Artocarpus rigida'"))
 
+# get the concept column from the example translation
+# ex_concept <- drive_get("2_example_german_translation") |> 
+#   read_sheet() |> 
+#   filter(!is.na(Concept), Concept != "DUPLICATE") |> 
+#   mutate(category = replace(category, 
+#                             example_id == "12_1683688193_0" & 
+#                               category == "example_GermanTranslationVariant", 
+#                             "example_GermanTranslation"))
+# ex_concept |> write_rds("data-raw/ex_concept.rds")
+ex_concept <- read_rds("data-raw/ex_concept.rds")
+
 # get the example translation that has been checked
-ex_translation_checked1 <- drive_get("2_example_german_translation-to-check-BATCH1") |> 
-  read_sheet() |> 
-  mutate(batch = 1)
-ex_translation_checked2 <- drive_get("2_example_german_translation-to-check-BATCH2") |> 
-  read_sheet() |> 
-  mutate(batch = 2)
+# ex_translation_checked1 <- drive_get("2_example_german_translation-to-check-BATCH1") |> 
+#   read_sheet() |> 
+#   mutate(batch = 1)
+# ex_translation_checked1 |> write_rds("data-raw/2_example_german_translation-to-check-BATCH1.rds")
+ex_translation_checked1 <- read_rds("data-raw/2_example_german_translation-to-check-BATCH1.rds")
+
+# ex_translation_checked2 <- drive_get("2_example_german_translation-to-check-BATCH2") |> 
+#   read_sheet() |> 
+#   mutate(batch = 2)
+# ex_translation_checked2 |> write_rds("data-raw/2_example_german_translation-to-check-BATCH2.rds")
+ex_translation_checked2 <- read_rds("data-raw/2_example_german_translation-to-check-BATCH2.rds")
+
 ex_all_translation_checked <- bind_rows(ex_translation_checked1, ex_translation_checked2)
 ex_all_translation_checked1 <- ex_all_translation_checked |> # combine the correction with the original German columns
   mutate(German_all = if_else(is.na(German_correction), German, German_correction)) |> 
@@ -66,7 +86,7 @@ ex_all_translation_checked1 <- ex_all_translation_checked |> # combine the corre
   mutate(English_all = if_else(is.na(English_correction), English, English_correction)) |> 
   select(-English, -English_correction) |>
   # filter out duplicates
-  filter(str_detect(English_all, "DUPLICATE", negate = TRUE)) |> 
+  filter(str_detect(English_all, "DUPLICATE", negate = TRUE), stem_id != "12_1684999160") |> 
   
   # edit some example_GermanTranslation combined from example_GermanTranslationVariant
   mutate(category = replace(category, example_id == "12_1683688193_0", "example_GermanTranslation")) |> 
@@ -89,7 +109,8 @@ ex_all_translation_checked1 <- ex_all_translation_checked |> # combine the corre
                               German_all),
          English_all = replace(English_all, example_id == "11_1684834366_4" & category == "example_GermanTranslation", "what people mix (= exchange) are goods")) |> 
   mutate(German_all = replace(German_all, example_id == "8_1685083404_2" & category == "example_GermanTranslation", "(\"Zuckerrohrblatt\" =) Schwert, damasziertes Haumesser"),
-         English_all = replace(English_all, example_id == "8_1685083404_2" & category == "example_GermanTranslation", "(\"sugar cane leaf\" =) Sword, damascened cleaver"))
+         English_all = replace(English_all, example_id == "8_1685083404_2" & category == "example_GermanTranslation", "(\"sugar cane leaf\" =) Sword, damascened cleaver")) |> 
+  mutate(example_form = replace(example_form, example_id == "15_1684204179_6", "edohəao kipakũkũ hii ekẽpũ"))
   
 ## add the missing data for "ũmãhã́ũ .... ũmãhã́ũ"
 ex_all_translation_checked2 <- ex_all_translation_checked1 |> 
@@ -105,3 +126,4 @@ ex_all_translation_checked2 <- ex_all_translation_checked1 |>
                      batch = 2, 
                      German_all = "entweder ... oder",
                      English_all = "either ... or"))
+
