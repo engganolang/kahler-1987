@@ -373,7 +373,8 @@ stems4 <- stems3 |>
                                           stem_GermanTranslation),
          stem_GermanTranslationVariant = if_else(stem_id == "12_1684853273",
                                                  NA,
-                                                 stem_GermanTranslationVariant))
+                                                 stem_GermanTranslationVariant)) |> 
+  mutate(stem_homonymID = str_replace_all(stem_homonymID, "\\s*(\\(\\=\\s?[0-9])\\s?(\\?\\))", " \\1\\2"))
 
 
 
