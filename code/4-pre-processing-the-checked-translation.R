@@ -1,15 +1,15 @@
 # NOTE: This code file processes the checked translation data for the stems and example forms.
 
-library(googledrive)
-library(googlesheets4)
+# library(googledrive)
+# library(googlesheets4)
 library(tidyverse)
 
 # Access google drive folder in the Enggano shared drive
-source("code/0-directory.R")
+# source("code/0-directory.R")
 
 # list the files in the Kahler dictionary translation folder id
-kahler_dict_files <- drive_ls(path = as_id(kahler_dict_folder))
-kahler_dict_files
+# kahler_dict_files <- drive_ls(path = as_id(kahler_dict_folder))
+# kahler_dict_files
 
 # get the stem translation that has been checked
 # stems_translation_checked <- drive_get("1_stem_german_translation-to-check") |> 
@@ -18,6 +18,9 @@ kahler_dict_files
 stems_translation_checked <- read_rds("data-raw/1_stem_german_translation-to-check.rds")
 
 stems_translation_checked1 <- stems_translation_checked |> # combine the corrected with the original German columns
+  mutate(German_corrected = if_else(stem_id == "8_1688391595",
+                          German,
+                          German_corrected)) |> 
   mutate(German_all = if_else(is.na(German_corrected), German, German_corrected)) |> 
   select(-German, -German_corrected) |> # combine the corrected with the original English columns
   mutate(English_all = if_else(is.na(English_corrected), English, English_corrected)) |> 
@@ -43,6 +46,9 @@ stems_translation_checked1 <- stems_translation_checked |> # combine the correct
          Indonesian = if_else(stem_id == "12_1684853273" & category == "stem_GermanTranslation",
                               str_replace_all(Indonesian, "\\s\\(er\\)", ""),
                               Indonesian)) |>  
+  
+  # other editing
+  mutate(English_all = str_replace(English_all, "\\(change expression for\\b", "(alternative expression for")) |> 
   
   # change the category for id "11_1684291849" from REMARK to CROSSREF
   mutate(category = replace(category, stem_id == "11_1684291849" & 
