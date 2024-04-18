@@ -45,4 +45,4 @@ ketym_n <- ketym1 |>
 
 # now save the stem translation tibble to the created spreadsheet
 # sheet_write(ketym1, ss = '1YNQYgpdRZ0B5oNavL8C3JwQ4CJiebGJjDnjZZIHN8pM', sheet = 'Sheet1')
-sheet_write(ketym_n, ss = '1YNQYgpdRZ0B5oNavL8C3JwQ4CJiebGJjDnjZZIHN8pM', sheet = 'CountEtymLang')
+# sheet_write(ketym_n, ss = '1YNQYgpdRZ0B5oNavL8C3JwQ4CJiebGJjDnjZZIHN8pM', sheet = 'CountEtymLang')
