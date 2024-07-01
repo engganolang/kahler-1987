@@ -11,9 +11,9 @@ library(tidyverse)
 # kahler_dict_files <- drive_ls(path = as_id(kahler_dict_folder))
 # kahler_dict_files
 
-# get the stem translation that has been checked
-# stems_translation_checked <- drive_get("1_stem_german_translation-to-check") |> 
-#   read_sheet() |> 
+# get the stem translation from the Google Spreadsheet that has been checked
+# stems_translation_checked <- drive_get("1_stem_german_translation-to-check") |>
+#   read_sheet() |>
 #   write_rds("data-raw/1_stem_german_translation-to-check.rds")
 stems_translation_checked <- read_rds("data-raw/1_stem_german_translation-to-check.rds")
 
@@ -61,26 +61,26 @@ stems_translation_checked1 <- stems_translation_checked |> # combine the correct
                                  category == "stem_crossref",
                                "DEC 345 kadodo 'Artocarpus Gomeziana Wall.', DEC 355 kadodotok 'Artocarpus rigilda bl.', Heyne 64/1946 kadodohok 'Artocarpus rigida'"))
 
-# get the concept column from the example translation
-# ex_concept <- drive_get("2_example_german_translation") |> 
-#   read_sheet() |> 
-#   filter(!is.na(Concept), Concept != "DUPLICATE") |> 
-#   mutate(category = replace(category, 
-#                             example_id == "12_1683688193_0" & 
-#                               category == "example_GermanTranslationVariant", 
+# get the concept column from the example translation GSheet
+# ex_concept <- drive_get("2_example_german_translation") |>
+#   read_sheet() |>
+#   filter(!is.na(Concept), Concept != "DUPLICATE") |>
+#   mutate(category = replace(category,
+#                             example_id == "12_1683688193_0" &
+#                               category == "example_GermanTranslationVariant",
 #                             "example_GermanTranslation"))
 # ex_concept |> write_rds("data-raw/ex_concept.rds")
 ex_concept <- read_rds("data-raw/ex_concept.rds")
 
-# get the example translation that has been checked
-# ex_translation_checked1 <- drive_get("2_example_german_translation-to-check-BATCH1") |> 
-#   read_sheet() |> 
+# get the example translation Google Spreadsheet that has been checked
+# ex_translation_checked1 <- drive_get("2_example_german_translation-to-check-BATCH1") |>
+#   read_sheet() |>
 #   mutate(batch = 1)
 # ex_translation_checked1 |> write_rds("data-raw/2_example_german_translation-to-check-BATCH1.rds")
 ex_translation_checked1 <- read_rds("data-raw/2_example_german_translation-to-check-BATCH1.rds")
 
-# ex_translation_checked2 <- drive_get("2_example_german_translation-to-check-BATCH2") |> 
-#   read_sheet() |> 
+# ex_translation_checked2 <- drive_get("2_example_german_translation-to-check-BATCH2") |>
+#   read_sheet() |>
 #   mutate(batch = 2)
 # ex_translation_checked2 |> write_rds("data-raw/2_example_german_translation-to-check-BATCH2.rds")
 ex_translation_checked2 <- read_rds("data-raw/2_example_german_translation-to-check-BATCH2.rds")
