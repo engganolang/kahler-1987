@@ -51,6 +51,8 @@ stems2 <- stems1 |>
          across(where(is.character), ~str_replace_all(., "(ú|ú)", "ú")),
          across(where(is.character), ~str_replace_all(., "(ü|ü)", "ü")),
          across(where(is.character), ~str_replace_all(., "(ß|ẞ)", "ß")),
+         across(where(is.character), ~str_replace_all(., "\\s\\<e2\\>\\?\\<b4\\>", "⁴")),
+         across(where(is.character), ~str_replace_all(., "\\<e1\\>\\<b5\\>", "ɡ")),
          stem_form = str_replace_all(stem_form, "\\s*\\:$", ""))
 
 ## checking the replacement
