@@ -164,12 +164,24 @@ stem_all2 <- stem_all1 |>
   left_join(stem_form_IDN)
 
 ## C-2. for remark: combine the IDN translation into the main table ======
+stem_remark_IDN <- read_csv2("../kahler-idn-translation-to-check/stem_remark_IDN-added-cols.csv") |> 
+  select(-stem_remark_IDN) |> 
+  rename(stem_remark_IDN = stem_remark_IDN2) |> 
+  select(ID, stem_remark_IDN)
+stem_all3 <- stem_all2 |>
+  select(-stem_remark_IDN) |>
+  left_join(stem_remark_IDN)
 
 
 # D. Read-in the IDN translation for EXAMPLE that has been checked ====
 ## D-1. for example-form: combine the IDN translation into the main table ====
-ex_form_IDN_edited <- read_csv2("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv") |> 
-  
+### on my Dell Windows
+ex_form_IDN_edited <- read_csv2("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv") 
+
+### on my Mac laptop
+# ex_form_IDN_edited <- read_tsv("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv")
+
+ex_form_IDN_edited <- ex_form_IDN_edited |> 
   # merge the edited translation with those that are OK from DeepL
   mutate(ex_IDN = if_else(is.na(ex_form_IDN_edited), ex_form_IDN, ex_form_IDN_edited)) |> 
   # rename(ex_IDN_old = ex_form_IDN) |> 
