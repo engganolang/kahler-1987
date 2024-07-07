@@ -84,14 +84,14 @@ char_count |>
   select(1:5, matches("nchar_")) |> 
   arrange(desc(nchar_stem_GermanTranslation))
 
-# in the stems, there are no trimmed entries for the stem_GermanTranslation
+# in the stems, there are no trimmed entries for the <<stem_GermanTranslation>> column
 
-# in the stems, the trimmed entries for "REMARK" are:
+# in the stems, the trimmed entries for "REMARK" column are:
 # 'kms_page==117 & kms_entry_no==10' and 'kms_page==180 & kms_entry_no==4' (max characters are 249 that were trimmed)
 kms_117_entry_10_part <- " geworfen, und nach etwa einer Stunde konnte man die betäubten Fische herausnehmen."
 kms_180_entry_04_part <- "(eakõmãʔã:õ) darstellen sollte, geschmück. Er war Symbol der Schnelligkeit. H88:307 ... zijn de sampans versierd ... aan den achtersteven met de èkoekjou, een houten vogel met oogen var paarlemoer ..."
 
-# in the stems, the trimmed entries for "CROSSREF" are:
+# in the stems, the trimmed entries for "CROSSREF" column are:
 # 'kms_page==144 & kms_entry_no==16', 'kms_page==164, kms_entry_no==6', 'kms_page==108, kms_entry_no==5' (characters from 248-252)
 kms_144_entry_16_part <- "lla sotto gli scogli e nelle acque basse."
 kms_164_entry_6_part <- "36 auf S.21o) con gli occhi di madreperla, che somigliano indubbiamente alle ardee, ai picchioni ed ai pappagalli, tutti animali volatori. ...Euciá eloha (= ekuʔiʔiau udahao) sono detti gli uccelli e le teste umane che stanno sulla prua."
@@ -451,7 +451,7 @@ char_count <- examples2 |>
 char_count |> 
   select(1:4, matches("nchar_.*cross")) |> 
   arrange(desc(nchar_example_crossref))
-# in the examples, the trimmed entries for "crossref" are:
+# in the examples, the trimmed entries for "CROSSREF" column are:
 ## 'stem_id=='8_1684998925', example_id=='8_1684998925_8'' -- part 1
 crossref_ex_part_1 <- "ij hoofdpijn [kafoehoe èoeloe] wordt het hoofd van den lijder eerst kunstmatig behandeld [pihi] en daarna stijf met een doek aangebonden"
 

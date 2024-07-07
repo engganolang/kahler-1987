@@ -1,4 +1,4 @@
-# NOTE: This code file processes the checked translation data for the stems and example forms.
+# NOTE: This code file processes the checked translation data for the stems and example forms. It involves retrieving the checked English translation from the Google Spreadsheet, save it into .rds data, and do further editing.
 
 # library(googledrive)
 # library(googlesheets4)
@@ -15,6 +15,8 @@ library(tidyverse)
 # stems_translation_checked <- drive_get("1_stem_german_translation-to-check") |>
 #   read_sheet() |>
 #   write_rds("data-raw/1_stem_german_translation-to-check.rds")
+
+# load the .rds file, which comes from the Google Spreadsheet containing the English translation for STEM that has been checked 
 stems_translation_checked <- read_rds("data-raw/1_stem_german_translation-to-check.rds")
 
 stems_translation_checked1 <- stems_translation_checked |> # combine the corrected with the original German columns
@@ -77,15 +79,21 @@ ex_concept <- read_rds("data-raw/ex_concept.rds")
 #   read_sheet() |>
 #   mutate(batch = 1)
 # ex_translation_checked1 |> write_rds("data-raw/2_example_german_translation-to-check-BATCH1.rds")
+
+# load the .rds file, which comes from the Google Spreadsheet containing the English translation for EXAMPLE FORM (BATCH 1) that has been checked
 ex_translation_checked1 <- read_rds("data-raw/2_example_german_translation-to-check-BATCH1.rds")
 
 # ex_translation_checked2 <- drive_get("2_example_german_translation-to-check-BATCH2") |>
 #   read_sheet() |>
 #   mutate(batch = 2)
 # ex_translation_checked2 |> write_rds("data-raw/2_example_german_translation-to-check-BATCH2.rds")
+
+# load the .rds file, which comes from the Google Spreadsheet containing the English translation for EXAMPLE FORM (BATCH 2) that has been checked
 ex_translation_checked2 <- read_rds("data-raw/2_example_german_translation-to-check-BATCH2.rds")
 
+# combine the data for the BATCH 1 and BATCH 2 EXAMPLE FORMS which English translation has been checked
 ex_all_translation_checked <- bind_rows(ex_translation_checked1, ex_translation_checked2)
+
 ex_all_translation_checked1 <- ex_all_translation_checked |> # combine the correction with the original German columns
   mutate(German_all = if_else(is.na(German_correction), German, German_correction)) |> 
   select(-German, -German_correction) |> # combine the correction with the original English columns
