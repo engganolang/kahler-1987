@@ -90,6 +90,32 @@ stems_translation_checked2 |>
 stem_no_german_in_checked_file_df
 
 
+## D. STEMS REMAINING COLUMNS ==============
+stems4_rests <- stems4 |> 
+  select(1:5,
+         stem_homonymID,
+         stem_formVarian,
+         stem_dialectVariant,
+         stem_etymological_form,
+         stem_etym_form_German,
+         stem_etymological_language_donor,
+         stem_loanword_form,
+         stem_loanword_language_donor,
+         stem_source_form,
+         stem_source_form_homonymID)
+
+### D1. combining `stems4` with `stems_translation_root/variant/remark/crossref`
+stem_all <- stems4 |> 
+  left_join(stems_translation_root) |> 
+  left_join(stems_translation_variant) |> 
+  left_join(stems_translation_remark) |> 
+  left_join(stems_translation_crossref) |> 
+  select(!matches("^create|update|used_time|complete")) |> 
+  arrange(kms_Alphabet, kms_page, kms_entry_no) |> 
+  mutate(stem_etym_DE = if_else(!is.na(stem_etym_form_German), stem_etym_form_German, NA),
+         stem_etym_EN = if_else(stem_etym_DE == "\"der zu Angelnde\"", "the one to be fished", NA))
+
+
 ### EXAMPLES ========
 #### IMPORTANT: some of the following codes can be run after first running codes in `5-combine-original-and-checked...`
 
@@ -103,6 +129,7 @@ ex_no_german_for_form |>
          is.na(example_remark), is.na(example_crossref)) -> ex_no_german_for_form_variant_remark_crossref
 
 
+
 #### 1. from `ex_no_german_for_form`, check if their IDs are absent from the example_form having German translation that is checked
 ##### IMPORTANT: the following code can be run after codes in `5-combine-original-and-checked...` have been run!
 ##### NOTE ON RESULTS: so it is correct that IDs in `ex_no_german_for_form` are absent from the checked translation of the example_form having German translation
@@ -110,7 +137,13 @@ ex_no_german_for_form |>
 # A tibble: 0 × 10
 # ℹ 10 variables: stem_id <chr>, kms_Alphabet <chr>, kms_page <dbl>, kms_entry_no <dbl>, stem_form <chr>, example_id <chr>, example_entry_no <chr>,
 #   example_form <chr>, ex_GermanTranslation_DE <chr>, ex_English <chr>
-
+##### CHECK IF THE EXAMPLE_ID from `examples3` (that has example_GermanTranslation) and `ex_form_translation` matches
+ex_id_that_has_german_translation <- pull(filter(examples3, !is.na(example_GermanTranslation)), example_id)
+ex_id_that_has_german_translation_checked <- ex_form_translation$example_id
+setdiff(ex_id_that_has_german_translation, ex_id_that_has_german_translation_checked)
+# character(0)
+all(sort(ex_id_that_has_german_translation) == sort(ex_id_that_has_german_translation_checked))
+# [1] TRUE
 
 #### 2. from `ex_no_german_for_form`, check if there are entries for the GermanVariant and crosscheck with the checked translation file
 ex_no_german_has_germanvariant <- filter(ex_no_german_for_form, !is.na(example_GermanTranslationVariant))
@@ -138,4 +171,40 @@ filter(ex_all_translation_checked3, example_id  %in% ex_no_german_has_crossref$e
 ### SUMMARY NOTES
 #### the data in `ex_form_translation` (example_form that has German translation) from output of codes in `5-combine-original-...`
 #### needs to be combined with `ex_no_german_for_form_variant_remark_crossref` (example_form that has NO German translation, No German for variant, NO Remark, and NO Crossreferences) from the current code file.
+ex_no_german_for_form_variant_remark_crossref1 <- ex_no_german_for_form_variant_remark_crossref |> 
+  select(stem_id, example_id, example_form) |> 
+  left_join(stems4[, 1:5]) |> 
+  mutate(example_entry_no = str_extract(example_id, "(?<=_)\\d+$"),
+         example_entry_no = if_else(nchar(example_entry_no) == 1, paste("0", example_entry_no, sep = ""), example_entry_no)) |> 
+  mutate(ex_DE = NA, ex_EN = NA, ex_concept = NA)
 
+
+
+## D. EXAMPLES REMAINING COLUMNS ===========
+examples3_rests <- examples3 |> 
+  select(example_id, 
+         stem_id, 
+         example_form, 
+         example_variant, 
+         example_etymological_form, 
+         example_etymological_language_donor, 
+         example_loanword_form, 
+         example_loanword_language_donor, 
+         example_source_form, 
+         example_source_form_homonymID, 
+         example_dialect_variant)
+
+### D1. combining `examples3` with `ex_form/remark/crossref/variant_translation`
+example_all <- examples3 |> 
+  left_join(ex_form_translation |> 
+              select(-kms_Alphabet, -kms_page, -kms_entry_no, -stem_form, -example_entry_no)) |> 
+  left_join(ex_variant_translation |> 
+              select(-kms_Alphabet, -kms_page, -kms_entry_no, -stem_form, -example_entry_no)) |> 
+  left_join(ex_remark_translation |> 
+              select(-kms_Alphabet, -kms_page, -kms_entry_no, -stem_form, -example_entry_no)) |> 
+  left_join(ex_crossref_translation |> 
+              select(-kms_Alphabet, -kms_page, -kms_entry_no, -stem_form, -example_entry_no)) |> 
+  select(!matches("^create|update|used_time|complete"))
+
+### D2. select relevant columns
+example_all |> select(1:3, matches("^kms_|^stem_form|entry_no|^ex_|etym|loan|source|homon|^example_variant"))
