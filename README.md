@@ -3,6 +3,7 @@ Enggano-German Dictionary by Hans Kähler (1987)
 [Gede Primahadi Wijaya
 Rajeg](https://www.ling-phil.ox.ac.uk/people/gede-rajeg)
 <a itemprop="sameAs" content="https://orcid.org/0000-0002-2047-8621" href="https://orcid.org/0000-0002-2047-8621" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>
+</a><br>University of Oxford, UK & Universitas Udayana, Indonesia
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -24,6 +25,12 @@ Philology and Phonetics at the University of Oxford, UK. Visit the
 [central webpage of the Enggano
 project](https://enggano.ling-phil.ox.ac.uk/)*.
 
+<p xmlns:cc="http://creativecommons.org/ns#">
+This work is licensed under
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC
+BY-NC-SA 4.0
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a>
+</p>
 <!-- badges: end -->
 
 # Overview
@@ -31,7 +38,7 @@ project](https://enggano.ling-phil.ox.ac.uk/)*.
 Repository containing the R codes and the associated materials to
 process the retro-digitisation[^1] output of the Enggano-German
 Dictionary ([Kähler 1987](#ref-kähler1987)). My work in the digitisation
-task is substantially supported by the core members of the digitisation
+task was substantially supported by the core members of the digitisation
 team:
 
 1.  [Cokorda Rai Adi
@@ -67,6 +74,13 @@ team:
 9.  [Ni Putu Wulan
     Lestari](https://id.linkedin.com/in/ni-putu-wulan-lestari-572962179)
     (Independent researcher; transcriber)
+10. [Barnaby Burleigh](https://philpeople.org/profiles/barnaby-burleigh)
+    (University of Oxford, UK; proof-reader of the English translation
+    of the original German gloss)
+
+The work on the manual checking the Indonesian translation from the
+English translation is available
+[here](https://github.com/engganolang/kahler-idn-translation-checking).
 
 ## References
 
