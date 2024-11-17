@@ -3,8 +3,12 @@
 library(tidyverse)
 
 ### IMPORTANT
-source("code/5-combine-original-and-checked-translation.R")
-source("code/1-pre-processing.R")
+source("code/5-combine-original-and-checked-translation.R") # [IMPORTANT!] If this file has been run independently, don't run it here.
+source("code/1-pre-processing.R") # [IMPORTANT!] If this file has been run independently, don't run it here.
+
+### The code files no. 2 and 3 are skipped because they are preparation scripts ... (cont.) 
+#### ... to retrieve the German-English translation Google Spreadsheet to be further checked by Barnaby 
+#### (the checking is DONE and the checked English translation files are processed and brought into R in script 4-)
 
 stem_loanword_form <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv", 
                                 skip = 9076, 
