@@ -51,26 +51,26 @@ team:
     Sarasvananda](https://scholar.google.co.id/citations?user=mShkhLEAAAAJ&hl=id)
     (Institut Bisnis dan Teknologi Indonesia \[INSTIKI\])
     - developer of the transcription database system
-3.  [Putu Dea Indah
-    Kartini](https://www.researchgate.net/profile/Putu-Kartini) (Udayana
-    University, undergrad. student research assistant and transcriber)
-4.  [Fitriani Putri
-    Koemba](https://figshare.com/authors/Fitri_Koemba/16637976) (Udayana
-    University, undergrad. student research assistant and transcriber)
-5.  [I Gede Semara Dharma
-    Putra](https://figshare.com/authors/I_Gede_Semara_Dharma_Putra/11755628)
-    (Udayana University, undergrad. student research assistant and
-    transcriber)
-6.  [Putu Wahyu
+3.  [Putu Wahyu
     Widiatmika](https://scholar.google.com/citations?user=2S21SFYAAAAJ&hl=en)
     (Udayana University, master’s student research assistant and
     transcriber)
-7.  [Ida Bagus Made Ari
+4.  [Ida Bagus Made Ari
     Segara](https://scholar.google.com/citations?user=rkWwDAwAAAAJ&hl=id)
     (Udayana University, master’s student research assistant and
     transcriber)
-8.  Yul Fulgensia Rusman Pita (Udayana University, master’s student
+5.  Yul Fulgensia Rusman Pita (Udayana University, master’s student
     research assistant and transcriber)
+6.  [Fitriani Putri
+    Koemba](https://figshare.com/authors/Fitri_Koemba/16637976) (Udayana
+    University, undergrad. student research assistant and transcriber)
+7.  [I Gede Semara Dharma
+    Putra](https://figshare.com/authors/I_Gede_Semara_Dharma_Putra/11755628)
+    (Udayana University, undergrad. student research assistant and
+    transcriber)
+8.  [Putu Dea Indah
+    Kartini](https://www.researchgate.net/profile/Putu-Kartini) (Udayana
+    University, undergrad. student research assistant and transcriber)
 9.  [Ni Putu Wulan
     Lestari](https://id.linkedin.com/in/ni-putu-wulan-lestari-572962179)
     (Independent researcher; transcriber)
