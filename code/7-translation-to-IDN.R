@@ -320,12 +320,17 @@ ex_main_tb <- example_all5 |>
          example_etymological_language_donor,
          example_loanword_form,
          example_loanword_language_donor,
+         example_source_form,
+         example_source_form_homonymID,
+         # example_remark,
          ex_remark_DE,
          ex_remark_EN,
          ex_remark_IDN,
+         # example_crossref,
          ex_crossref_DE,
          ex_crossref_EN,
-         ex_crossref_IDN) |> 
+         ex_crossref_IDN,
+         matches("concept")) |> 
   # change the glottal stop to superscript
   mutate(across(where(is.character), ~str_replace_all(., "ʔ", "ˀ")))
 
@@ -338,6 +343,38 @@ write_tsv(ex_main_tb, file = "data-main/examples_main_tb.tsv")
 kahler_dict <- stem_main_tb |> 
   left_join(ex_main_tb)
 kahler_dict
+
+### E.1 add the name of the etymological language donor =====
+#### [IMPORTANT] - need to run code `1-....`
+kahler_dict <- kahler_dict |> 
+  left_join(lang_df |> 
+              mutate(sw_id = as.character(sw_id)) |> 
+              rename(stem_etymological_language_donor = sw_id)) |> 
+  mutate(stem_etymological_language_donor = if_else(!is.na(sw_name),
+                                                    sw_name,
+                                                    stem_etymological_language_donor)) |> 
+  select(-sw_name)
+kahler_dict
+
+### E.2 deal with the loanword data =====
+#### [IMPORTANT] - need to run code `5-1-checking-loanword`
+loan_df <- stem_loanword_form |> 
+  select(stem_id, loan_form) |> 
+  left_join(stem_loanword_lang |> 
+              select(-lld_id)) |> 
+  left_join(lang_df |> 
+              rename(stem_loanword_language_donor = sw_id)) |> 
+  select(-stem_loanword_language_donor) |> 
+  rename(stem_loan_lang = sw_name,
+         stem_loan_form = loan_form)
+
+### E.3 combine kahler_dict with loan_df =====
+kahler_dict <- kahler_dict |> 
+  left_join(loan_df) |> 
+  select(-stem_loanword_form,
+         -stem_loanword_language_donor) |> 
+  distinct()
+
 ## SAVE THE COMBINED DATA TO SHARE TO GITHUB ====
 #### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
 write_csv(kahler_dict, file = "data-main/kahler_dict.csv") 
