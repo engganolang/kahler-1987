@@ -1,9 +1,16 @@
 # NOTE: This code file aims to record the steps in combining the original data (before checking) with the data which English translation has been checked.
+### 1. The script to process the original data is in `code/1-pre-processing.R` while the checked English translation is processed in `code/4-pre-processing-the-checked-translation.R`
+### 2. The code files no. 2 and 3 are skipped ...
+#### 2.1 because they are preparation scripts to retrieve the German-English translation Google Spreadsheet to be further checked by Barnaby 
+#### 2.2 (the checking is DONE by Barnaby and the checked English translation files are processed in script 4-)
+#### 2.3 [IMPORTANT] So, if there are changes for the "checked English translation" Google Spreadsheet ...
+#### 2.4 ... the code to retrieve such edited Google Spreadsheet needs to be re-run in `4-pre-processing-the-checked-translation.R`!
 
-source("code/4-pre-processing-the-checked-translation.R")
-source('code/1-pre-processing.R')
+source("code/4-pre-processing-the-checked-translation.R") # [IMPORTANT!] IF this 4-... file has been run separately, do not run it here.
+source('code/1-pre-processing.R') # [IMPORTANT!] IF this 1-... file has been run separately, do not run it here.
 
 # Custom fixing
+## the `stems_translation_checked1` is the output of running the code in 4-...
 stems_translation_checked2 <- stems_translation_checked1 |> 
   mutate(English_all = str_replace_all(English_all,
                                        "(§+)(\\d)",
@@ -56,6 +63,9 @@ stems_translation_checked2 <- stems_translation_checked1 |>
 stems_translation_root <- stems_translation_checked2 |> 
   filter(category == "stem_GermanTranslation") |> 
   select(-category) |> 
+  # fix English translations
+  mutate(English_all = replace(English_all, German_all == "Fußangel", "anklet"),
+         English_all = replace(English_all, stem_id == "8_1686025588", "Hand ; outrigger")) |> 
   rename(stem_DE = German_all) |> 
   rename(stem_EN = English_all) |> 
   rename(stem_IDN = Indonesian) |> 
@@ -185,7 +195,10 @@ stems_translation_crossref <- stems_translation_checked2 |>
                                             "0")) |> 
   mutate(stem_crossref_DE = str_replace_all(stem_crossref_DE, "(?<=[^\\s])\\;", " ;"),
          stem_crossref_EN = str_replace_all(stem_crossref_EN, "(?<=[^\\s])\\;", " ;"),
-         stem_crossref_EN = str_replace_all(stem_crossref_EN, "\\bDgl", "and the like"))
+         stem_crossref_EN = str_replace_all(stem_crossref_EN, "\\bDgl", "and the like"),
+         stem_crossref_EN = str_replace_all(stem_crossref_EN, "\\btav\\.", "table "),
+         stem_crossref_EN = str_replace_all(stem_crossref_EN, "\\b([fF]ig\\.)\\s+", "\\1"),
+         stem_crossref_EN = str_replace_all(stem_crossref_EN, "\\b(p\\.)\\s+[0-9]", "\\1"))
 ### CHECK if the stem_id of the original database is the same with the checked translation ======
 all(sort(pull(filter(stems4, !is.na(stem_crossref)), stem_id)) ==
       sort(stems_translation_crossref$stem_id))
@@ -280,12 +293,13 @@ ex_to_check_missing1 <- ex_to_check_missing |>
 ex_to_check_missing1 |> 
   filter(is.na(English_all)) |> 
   select(German_all, English_all)
-#### IMPORTANT: `ex_to_check_missing1` needs to be added to `ex_all_translation_checked2` into `ex_all_translation_checked3` 
+#### IMPORTANT: (a) `ex_to_check_missing1` needs to be combined with `ex_all_translation_checked2` into `ex_all_translation_checked3` 
 #### (esp. for remark and crossref categories) because
 #### there are cross-references and remarks that are not checked 
 #### (because they are not having German translation content)
-ex_all_translation_checked3 <- ex_to_check_missing1 |> 
-  bind_rows(ex_all_translation_checked2) |> 
+#### the `ex_all_translation_checked2` is the output of running the code in 4-...
+ex_all_translation_checked3 <- ex_to_check_missing1 |> # this is the combining code referred to in IMPORTANT: (a) above.
+  bind_rows(ex_all_translation_checked2) |> # this is the combining code referred to in IMPORTANT: (a) above.
   distinct() |> 
   ##### put spaces around semicolons
   mutate(across(matches("^(German_all|English_all)$"), ~ str_replace_all(.x, "([^\\s])([;,])", "\\1 \\2"))) |> 
@@ -498,44 +512,3 @@ ex_crossref_concept <- ex_concept |>
   select(example_id, stem_id, ex_crossref_concept = Concept)
 ex_crossref_translation <- ex_crossref_translation |> 
   left_join(ex_crossref_concept)
-
-
-# C. EXAMPLES REMAINING COLUMNS ===========
-examples3_rests <- examples3 |> 
-  select(example_id, 
-         stem_id, 
-         example_form, 
-         example_variant, 
-         example_etymological_form, 
-         example_etymological_language_donor, 
-         example_loanword_form, 
-         example_loanword_language_donor, 
-         example_source_form, 
-         example_source_form_homonymID, 
-         example_dialect_variant)
-
-## C1. combining `examples3` with `ex_form/remark/crossref/variant_translation`
-
-# D. STEMS REMAINING COLUMNS ==============
-stems4_rests <- stems4 |> 
-  select(1:5,
-         stem_homonymID,
-         stem_formVarian,
-         stem_dialectVariant,
-         stem_etymological_form,
-         stem_etym_form_German,
-         stem_etymological_language_donor,
-         stem_loanword_form,
-         stem_loanword_language_donor,
-         stem_source_form,
-         stem_source_form_homonymID)
-
-## D1. combining `stems4` with `stems_translation_root/variant/remark/crossref`
-stem_all <- stems4 |> 
-  left_join(stems_translation_root) |> 
-  left_join(stems_translation_variant) |> 
-  left_join(stems_translation_remark) |> 
-  left_join(stems_translation_crossref) |> 
-  arrange(kms_Alphabet, kms_page, kms_entry_no) |> 
-  mutate(stem_etym_DE = if_else(!is.na(stem_etym_form_German), stem_etym_form_German, NA),
-         stem_etym_EN = if_else(stem_etym_DE == "\"der zu Angelnde\"", "the one to be fished", NA))
