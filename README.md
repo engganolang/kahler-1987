@@ -1,9 +1,12 @@
-Enggano-German Dictionary by Hans Kähler (1987)
+Retro-digitised Enggano-German Dictionary by Hans Kähler (1987)
 ================
 [Gede Primahadi Wijaya
 Rajeg](https://www.ling-phil.ox.ac.uk/people/gede-rajeg)
-<a itemprop="sameAs" content="https://orcid.org/0000-0002-2047-8621" href="https://orcid.org/0000-0002-2047-8621" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>
-</a><br>University of Oxford, UK & Universitas Udayana, Indonesia
+<a itemprop="sameAs" content="https://orcid.org/0000-0002-2047-8621" href="https://orcid.org/0000-0002-2047-8621" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>,
+Cokorda Pramartha, Ida Bagus Gede Sarasvananda, Putu Wahyu Widiatmika,
+Ida Bagus Made Ari Segara, Yul Fulgensia Rusman Pita, Fitriani Putri
+Koemba, I Gede Semara Dharma Putra, Putu Dea Indah Kartini, Ni Putu
+Wulan Lestari, Barnaby Burleigh
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -78,7 +81,7 @@ team:
     (University of Oxford, UK; proof-reader of the English translation
     of the original German gloss)
 
-The work on the manual checking the Indonesian translation from the
+The work on the manual checking of the Indonesian translation from the
 English translation is available
 [here](https://github.com/engganolang/kahler-idn-translation-checking).
 Some of the words in the dictionary are included in the Shiny app of the
