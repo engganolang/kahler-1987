@@ -58,7 +58,7 @@ df_stem <- stem_all1 |>
   filter(!is.na(stem_IDN2))
 df_stem
 
-# translating the stem form (1,607 rows, started at 18.04 pm stopped at around 18.18, 12 Feb. 2024)
+# translating the stem form (1,607 rows, started at 18.04 pm stopped at around 18.18, 12 Feb. 2024) using the deeplr R package
 # df_stem <- df_stem |> 
 #   mutate(stem_IDN2 = deeplr::translate2(text = stem_IDN2, 
 #                                         target_lang = "ID",
@@ -69,7 +69,7 @@ df_stem
 # write_rds(df_stem, file="data-raw/stem_form_IDN.rds")
 # stem_form_IDN <- read_rds("data-raw/stem_form_IDN.rds")
 # stem_form_IDN |> left_join(stem_all1 |> select(ID, stem_EN, stem_DE, stem_form, stem_id, matches("^kms_"))) |>
-#   write_csv2("../kahler-idn-translation-to-check/stem_form_IDN-added-cols.csv")
+#   write_csv2("../kahler-idn-translation-to-check/stem_form_IDN-added-cols.csv") <- this is the file checked for the Indonesian translation from deeplr and tracked in https://github.com/engganolang/kahler-idn-translation-checking
 
 ## for the Remark =====
 df_remark <- stem_all1 |> 
@@ -77,7 +77,7 @@ df_remark <- stem_all1 |>
   # exclude NAs
   filter(!is.na(stem_remark_IDN))
 df_remark
-### translating the remark of the stem form (277 rows; started from 21.21 pm - 21.23 pm)
+### translating the remark of the stem form (277 rows; started from 21.21 pm - 21.23 pm) using deeplr R package
 # df_remark <- df_remark |>
 #   mutate(stem_remark_IDN2 = deeplr::translate2(text = stem_remark_IDN,
 #                                         target_lang = "ID",
@@ -85,14 +85,14 @@ df_remark
 #                                         split_sentences = FALSE,
 #                                         preserve_formatting = TRUE,
 #                                         auth_key = deeplkey))
-# df_remark |> write_csv2("../kahler-idn-translation-to-check/stem_remark_IDN-added-cols.csv")
+# df_remark |> write_csv2("../kahler-idn-translation-to-check/stem_remark_IDN-added-cols.csv") <- this is the file checked for the Indonesian translation from deeplr and tracked in https://github.com/engganolang/kahler-idn-translation-checking
 
 ## for the Crossreference =====
 df_crossref <- stem_all1 |> 
   select(ID, stem_crossref_IDN, stem_crossref_EN, stem_crossref_DE, stem_form, stem_id, matches("^kms_")) |> 
   # exclude NAs
   filter(!is.na(stem_crossref_IDN))
-### translating the crossref of the stem form (552 rows; started from 12.20 pm - 12.24 pm)
+### translating the crossref of the stem form (552 rows; started from 12.20 pm - 12.24 pm) using deeplr R package
 # df_crossref <- df_crossref |> 
 #   mutate(stem_crossref_IDN2 = deeplr::translate2(text = stem_crossref_IDN,
 #                                                  target_lang = "ID",
@@ -103,7 +103,7 @@ df_crossref <- stem_all1 |>
 # df_crossref |> 
 #   select(-stem_crossref_IDN) |> 
 #   select(ID, stem_crossref_IDN = stem_crossref_IDN2, everything()) |> 
-#   write_csv2("../kahler-idn-translation-to-check/stem_crossref_IDN-added-cols.csv")
+#   write_csv2("../kahler-idn-translation-to-check/stem_crossref_IDN-added-cols.csv") <- this is the file checked for the Indonesian translation from deeplr and tracked in https://github.com/engganolang/kahler-idn-translation-checking
 
 # B. to translate: the EXAMPLE ===========
 
@@ -119,7 +119,7 @@ ex_form_to_translate <- example_all1 |>
   filter(!is.na(ex_EN))
 
 ### 3. translating the Example Form =====
-#### (started from 11:59, not finished yet at 12.44 pm, but it did at 12:58)
+#### (started from 11:59, not finished yet at 12.44 pm, but it did at 12:58) using deeplr R package
 # ex_form_IDN <- deeplr::translate2(text = ex_form_to_translate$ex_EN,
 #                                   target_lang = "ID",
 #                                   source_lang = "EN",
@@ -136,25 +136,68 @@ ex_form_IDN <- read_rds("data-raw/ex_form_IDN.rds")
 #               select(ID, example_id, stem_id, example_form, ex_DE, ex_EN)) |> 
 #   select(ID, example_id, stem_id, example_form, 
 #          ex_DE, ex_EN, ex_form_IDN, ex_form_IDN_edited) |>
-#   write_csv2("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv")
+#   write_csv2("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv") <- this is the file checked for the Indonesian translation from deeplr and tracked in https://github.com/engganolang/kahler-idn-translation-checking
 
 ## for the Example Variant form ====
-ex_variant_to_translate <- example_all1 |> 
-  select(ID, ex_variant_EN) |> 
-  filter(!is.na(ex_variant_EN))
+# ex_variant_IDN <- example_all1 |> 
+#   select(ID, ex_variant_EN) |> 
+#   filter(!is.na(ex_variant_EN)) |> 
+#   mutate(ex_variant_IDN = deeplr::translate2(text = ex_variant_EN,
+#                                              target_lang = "ID",
+#                                              source_lang = "EN",
+#                                              split_sentences = FALSE,
+#                                              preserve_formatting = TRUE,
+#                                              auth_key = deeplkey))
+# ex_variant_IDN |> write_rds("data-raw/ex_variant_IDN.rds")
+# ex_variant_IDN <- read_rds("data-raw/ex_variant_IDN.rds")
+# ex_variant_IDN |> write_csv2("../kahler-idn-translation-to-check/example_variant_IDN-added-cols.csv")
+ex_variant_IDN_checked <- read_csv2("../kahler-idn-translation-to-check/example_variant_IDN-added-cols.csv") |> 
+  select(ID, ex_variant_IDN)
 
 ## for the Example Remark form ====
-ex_remark_to_translate <- example_all1 |> 
-  select(ID, ex_remark_EN) |> 
-  filter(!is.na(ex_remark_EN))
+# ex_remark_IDN <- example_all1 |> 
+#   select(ID, ex_remark_EN) |> 
+#   filter(!is.na(ex_remark_EN)) |> 
+#   mutate(ex_remark_IDN = deeplr::translate2(text = ex_remark_EN,
+#                                              target_lang = "ID",
+#                                              source_lang = "EN",
+#                                              split_sentences = FALSE,
+#                                              preserve_formatting = TRUE,
+#                                              auth_key = deeplkey))
+# ex_remark_IDN |> write_rds("data-raw/ex_remark_IDN.rds")
+# ex_remark_IDN <- read_rds("data-raw/ex_remark_IDN.rds")
+# ex_remark_IDN |> write_csv2("../kahler-idn-translation-to-check/example_remark_IDN-added-cols.csv")
+ex_remark_IDN_checked <- read_csv2("../kahler-idn-translation-to-check/example_remark_IDN-added-cols.csv") |> 
+  mutate(ex_remark_IDN = if_else(!is.na(ex_remark_IDN_edited), 
+                                 ex_remark_IDN_edited,
+                                 ex_remark_IDN)) |> 
+  select(ID, ex_remark_IDN)
 
 ## for the Example Crossref. form ====
-ex_crossref_to_translate <- example_all1 |> 
-  select(ID, ex_crossref_EN) |> 
-  filter(!is.na(ex_crossref_EN))
-
+# ex_crossref_IDN <- example_all1 |> 
+#   select(ID, ex_crossref_EN) |> 
+#   filter(!is.na(ex_crossref_EN)) |> 
+#   mutate(ex_crossref_IDN = deeplr::translate2(text = ex_crossref_EN,
+#                                               target_lang = "ID",
+#                                               source_lang = "EN",
+#                                               split_sentences = FALSE,
+#                                               preserve_formatting = TRUE,
+#                                               auth_key = deeplkey))
+# ex_crossref_IDN |> write_rds("data-raw/ex_crossref_IDN.rds")
+# ex_crossref_IDN <- read_rds("data-raw/ex_crossref_IDN.rds")
+# ex_crossref_IDN |> write_csv2("../kahler-idn-translation-to-check/example_crossref_IDN-added-cols.csv")
+ex_crossref_IDN_checked <- read_csv2("../kahler-idn-translation-to-check/example_crossref_IDN-added-cols.csv") |> 
+  mutate(ex_crossref_EN = if_else(!is.na(ex_crossref_EN_edited),
+                                  ex_crossref_EN_edited,
+                                  ex_crossref_EN),
+         ex_crossref_IDN = if_else(!is.na(ex_crossref_IDN_edited),
+                                   ex_crossref_IDN_edited,
+                                   ex_crossref_IDN)) |> 
+  select(ID, ex_crossref_EN2 = ex_crossref_EN,
+         ex_crossref_IDN)
 
 # C. Read-in the IDN translation for STEM that has been checked ======
+# See the GitHub repo for the checked Indonesian translation at https://github.com/engganolang/kahler-idn-translation-checking
 ## C-1. for word-form: combine the IDN translation into the main table ======
 stem_form_IDN <- read_csv2("../kahler-idn-translation-to-check/stem_form_IDN-added-cols.csv") |> 
   rename(stem_IDN = stem_IDN2) |> 
@@ -173,10 +216,44 @@ stem_all3 <- stem_all2 |>
   left_join(stem_remark_IDN)
 
 
-# D. Read-in the IDN translation for EXAMPLE that has been checked ====
+## C-3. for cross-reference: combine the IDN translation into the main table ======
+stem_crossref_IDN <- read_csv2("../kahler-idn-translation-to-check/stem_crossref_IDN-added-cols.csv") |> 
+  select(ID, stem_crossref_IDN)
+stem_all4 <- stem_all3 |>
+  select(-stem_crossref_IDN) |>
+  left_join(stem_crossref_IDN)
+
+## C-4 SELECT THE RELEVANT COLUMNS FOR THE FINAL "STEM" DATA TO SAVE AND UPLOAD/SHARE ON GITHUB ====
+stem_main_tb <- stem_all4 |> 
+  select(1:5, stem_homonymID, stem_DE, stem_EN, stem_IDN, 
+         stem_formVarian, stem_variant_DE, stem_variant_EN, stem_variant_IDN,
+         stem_dialectVariant,
+         stem_etymological_form,
+         stem_etym_form_German,
+         stem_etymological_language_donor,
+         stem_loanword_form,
+         stem_loanword_language_donor,
+         stem_source_form,
+         stem_source_form_homonymID,
+         stem_remark_DE,
+         stem_remark_EN,
+         stem_remark_IDN,
+         stem_crossref_DE,
+         stem_crossref_EN,
+         stem_crossref_IDN) |> 
+  # change the glottal stop to superscript
+  mutate(across(where(is.character), ~str_replace_all(., "ʔ", "ˀ")))
+
+### SAVE THE STEM DATA TO SHARE TO GITHUB =====
+#### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
+write_csv(stem_main_tb, file = "data-main/stem_main_tb.csv") 
+write_tsv(stem_main_tb, file = "data-main/stem_main_tb.tsv")
+
+# D. Read-in the IDN translation for EXAMPLE FORMS that has been checked ====
+# See the GitHub repo for the checked Indonesian translation at https://github.com/engganolang/kahler-idn-translation-checking
 ## D-1. for example-form: combine the IDN translation into the main table ====
 ### on my Dell Windows
-ex_form_IDN_edited <- read_csv2("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv") 
+ex_form_IDN_edited <- read_tsv("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv") 
 
 ### on my Mac laptop
 # ex_form_IDN_edited <- read_tsv("../kahler-idn-translation-to-check/example_form_IDN-added-cols.csv")
@@ -205,4 +282,63 @@ example_all2 <- example_all1 |>
                                ex_IDN),
          ex_IDN = str_replace_all(ex_IDN, "\\bimperatif sg\\b", "imperatif tunggal"),
          ex_IDN = str_replace_all(ex_IDN, "\\s\\bf\\.sg\\.\\)", " feminin tunggal)"),
-         ex_IDN = str_replace_all(ex_IDN, "\\(sg\\,\\str\\)", "(bentuk tunggal , transitif)"))
+         ex_IDN = str_replace_all(ex_IDN, "\\(sg\\,\\str\\)", "(bentuk tunggal , transitif)"),
+         ex_IDN = str_replace_all(ex_IDN, "\\(tr\\)", "(bentuk transitif)")) |> 
+  # strip off all translation beginning with "untuk" that translates English "to-infinitive".
+  mutate(ex_IDN = str_replace_all(ex_IDN, "^untuk (?=me)", ""))
+
+## D-2. for example-variant: combine the IDN translation into the main table ====
+example_all3 <- example_all2 |> 
+  left_join(ex_variant_IDN_checked)
+
+## D-3. for example-remark: combine the IDN translation into the main table ====
+example_all4 <- example_all3 |> 
+  left_join(ex_remark_IDN_checked)
+
+## D-4. for example-crossreference: combine the IDN translation into the main table ====
+example_all5 <- example_all4 |> 
+  left_join(ex_crossref_IDN_checked) |> 
+  mutate(ex_crossref_EN = if_else(ex_crossref_EN != ex_crossref_EN2,
+                                  ex_crossref_EN2,
+                                  ex_crossref_EN)) |> 
+  select(-ex_crossref_EN2)
+
+## D-5 SELECT THE RELEVANT COLUMNS FOR THE FINAL "EXAMPLES" DATA TO SAVE AND UPLOAD/SHARE ON GITHUB ====
+ex_main_tb <- example_all5 |> 
+  select(stem_id,
+         example_id,
+         example_form,
+         ex_DE,
+         ex_EN,
+         ex_IDN,
+         example_variant,
+         ex_variant_DE,
+         ex_variant_EN,
+         ex_variant_IDN,
+         example_dialect_variant,
+         example_etymological_form,
+         example_etymological_language_donor,
+         example_loanword_form,
+         example_loanword_language_donor,
+         ex_remark_DE,
+         ex_remark_EN,
+         ex_remark_IDN,
+         ex_crossref_DE,
+         ex_crossref_EN,
+         ex_crossref_IDN) |> 
+  # change the glottal stop to superscript
+  mutate(across(where(is.character), ~str_replace_all(., "ʔ", "ˀ")))
+
+### SAVE THE EXAMPLE DATA TO SHARE TO GITHUB =====
+#### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
+write_csv(ex_main_tb, file = "data-main/examples_main_tb.csv") 
+write_tsv(ex_main_tb, file = "data-main/examples_main_tb.tsv")
+
+# E. Combine stem_main_tb with ex_main_tb by the "stem_id" column =====
+kahler_dict <- stem_main_tb |> 
+  left_join(ex_main_tb)
+kahler_dict
+## SAVE THE COMBINED DATA TO SHARE TO GITHUB ====
+#### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
+write_csv(kahler_dict, file = "data-main/kahler_dict.csv") 
+write_tsv(kahler_dict, file = "data-main/kahler_dict.tsv")
