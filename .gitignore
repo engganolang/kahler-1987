@@ -3,5 +3,6 @@
 .Rapp.history
 .RData
 .Ruserdata
-data-main
 to-translate
+code/0-*
+data*main/ex*3.tsv
