@@ -81,6 +81,10 @@ team:
 The work on the manual checking the Indonesian translation from the
 English translation is available
 [here](https://github.com/engganolang/kahler-idn-translation-checking).
+Some of the words in the dictionary are included in the Shiny app of the
+[*EnoLEX*](https://enggano.shinyapps.io/enolex/) database ([Krauße et
+al. 2024](#ref-krausse_enolex_2024); [Rajeg, Krauße & Pramartha
+2024](#ref-rajeg_enolex_2024)).
 
 ## References
 
@@ -91,6 +95,27 @@ English translation is available
 Kähler, Hans. 1987. *Enggano-deutsches wörterbuch* (Veröffentlichungen
 Des Seminars Für Indonesische Und Südseesprachen Der Universität Hamburg
 14). Berlin; Hamburg: Dietrich Reimer Verlag.
+
+</div>
+
+<div id="ref-krausse_enolex_2024" class="csl-entry">
+
+Krauße, Daniel, Gede Primahadi Wijaya Rajeg, Cokorda Pramartha, Erik
+Zobel, Charlotte Hemmings, I Wayan Arka & Mary Dalrymple. 2024. EnoLEX:
+A diachronic lexical database of the Enggano language. Online database.
+GitHub & Shiny web application: https://github.com/engganolang/enolex.
+<https://enggano.shinyapps.io/enolex/>.
+
+</div>
+
+<div id="ref-rajeg_enolex_2024" class="csl-entry">
+
+Rajeg, Gede Primahadi Wijaya, Daniel Krauße & Cokorda Pramartha. 2024.
+EnoLEX: A diachronic lexical database for the Enggano language. In Ai
+Inoue, Naho Kawamoto & Makoto Sumiyoshi (eds.), *AsiaLex 2024
+proceedings: Asian Lexicography - Merging cutting-edge and established
+approaches*, 123–132. Toyo University, Tokyo, Japan.
+<https://doi.org/10.25446/oxford.27013864>.
 
 </div>
 

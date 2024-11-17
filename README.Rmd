@@ -45,6 +45,6 @@ Repository containing the R codes and the associated materials to process the re
 9.  [Ni Putu Wulan Lestari](https://id.linkedin.com/in/ni-putu-wulan-lestari-572962179) (Independent researcher; transcriber)
 10. [Barnaby Burleigh](https://philpeople.org/profiles/barnaby-burleigh) (University of Oxford, UK; proof-reader of the English translation of the original German gloss)
 
-The work on the manual checking the Indonesian translation from the English translation is available [here](https://github.com/engganolang/kahler-idn-translation-checking).
+The work on the manual checking the Indonesian translation from the English translation is available [here](https://github.com/engganolang/kahler-idn-translation-checking). Some of the words in the dictionary are included in the Shiny app of the [*EnoLEX*](https://enggano.shinyapps.io/enolex/) database [@krausse_enolex_2024; @rajeg_enolex_2024].
 
 ## References
