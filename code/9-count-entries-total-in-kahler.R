@@ -8,3 +8,16 @@
 (stem_counts <- stem_all2 |> select(stem_form, stem_homonymID) |> distinct() |> nrow())
 (example_counts <- example_all2 |> select(example_form, ex_DE) |> distinct() |> nrow())
 (kahler_total_entries <- sum(stem_counts, example_counts))
+
+
+# Count contribution by the transcriber
+kahler_dict |> 
+  mutate(transcriber_id = as.double(str_extract(stem_id, "^[^_]+(?=_)"))) |> 
+  left_join(transcriber |> 
+              rename(transcriber_id = id)) |> 
+  select(kms_Alphabet, kms_page, kms_entry_no, name, stem_form, 
+         example_form, stem_id, example_id) |> 
+  distinct() |> 
+  count(name, sort = TRUE)
+
+# Gede, Cok, Gus Nanda, Wahyu, Gus Ari, Yul, Fitri, Semara, Dea, Wulan, Barnaby
