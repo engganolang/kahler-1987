@@ -67,7 +67,7 @@ stem_id	kms_Alphabet	kms_page	kms_entry_no	stem_form	stem_homonymID	stem_DE	stem
 9_1685499677	a	6	8	ahãhõ	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	s hãhõ	see hãhõ	lihat hãhõ
 9_1685499785	a	6	9	ahãĩ	NA	wer auch immer, irgendjemand, jeder (Sg)	whoever , someone , everyone (singular)	siapa pun , seseorang , semua orang (bentuk tunggal)	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	hãĩ	NA	NA	NA	NA	NA	NA	NA
 9_1685500094	a	7	1	ãhã:ĩ	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
-9_1685500195	a	7	2	eˀahã́ĩ	NA	grūner Papagei	green parrot	burung beo hijau	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	Oǃ	Oral!	Oral!	G67: eˀaháe	G67: eˀaháe	G67: eˀaháe
+9_1685500195	a	7	2	eˀahã́ĩ	NA	grüner Papagei	green parrot	burung beo hijau	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	Oǃ	Oral!	Oral!	G67: eˀaháe	G67: eˀaháe	G67: eˀaháe
 9_1685500349	a	7	3	eaha:iˀ[i]éda	NA	Mensch, Leute	Man , people	Manusia, orang	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	arch ; jetzt: ekaka	archaic ; now:ekaka	bentuk arkais; sekarang: ekaka	NA	NA	NA
 9_1685500469	a	7	4	ahao	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
 9_1685500980	a	7	5	ahaoa	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
@@ -1166,8 +1166,8 @@ stem_id	kms_Alphabet	kms_page	kms_entry_no	stem_form	stem_homonymID	stem_DE	stem
 11_1683684312	k	103	4	ka-	1	Pl-Artikel für Einzelwesen, die im Sg e- vor sich haben	Plural article for individuals who have e- in front of them in the sg	Artikel jamak untuk individu yang memiliki e- di depannya dalam bentuk tunggal	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§§ 1 und 2	§§ 1 and 2	§§ 1 dan 2
 11_1683684460	k	103	5	ka-	2	bildet spontane Zustandswörter	Forms spontaneous state words	Membentuk kata-kata keadaan spontan	NA	NA	NA	NA	NA	taR-	NA	11	NULL	NULL	NA	NA	NA	NA	NA	§ 48	NA	NA
 11_1683684772	k	103	6	ka-	3	bildet Verben	forms verbs	membentuk kata kerja	k-¹ (vor Vokalen)	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§§ 5c,41	NA	NA
-11_1683685408	k	103	7	ka-	4	er, sie, es; wir (in) pronominales Prāfix (3.Sg und 1.Pl in) vor Verben mit b(u)-, m(ũ)-	he , she , it ; We (inclusive) pronoun prefix (3rd Person Singular and 1st Person Plural inclusive) before verbs with b(u)- , m(ũ)-	dia (maskulin/feminin) itu ; Awalan untuk kata ganti “kita” (inklusif) (Orang Ketiga Tunggal dan Orang Pertama Jamak inklusif) sebelum kata kerja dengan b(u)- , m(ũ)-	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§ 16	NA	NA
-11_1683685615	k	103	8	ka-	5	eins (vor Hilfszāhlwörtern)	one (before auxiliary count words)	satu (sebelum kata bantu bilangan/numeralia)	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§ 34a	NA	NA
+11_1683685408	k	103	7	ka-	4	er, sie, es; wir (in) pronominales Präfix (3.Sg und 1.Pl in) vor Verben mit b(u)-, m(ũ)-	he , she , it ; We (inclusive) pronoun prefix (3rd Person Singular and 1st Person Plural inclusive) before verbs with b(u)- , m(ũ)-	dia (maskulin/feminin) itu ; Awalan untuk kata ganti “kita” (inklusif) (Orang Ketiga Tunggal dan Orang Pertama Jamak inklusif) sebelum kata kerja dengan b(u)- , m(ũ)-	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§ 16	NA	NA
+11_1683685615	k	103	8	ka-	5	eins (vor Hilfszählwörtern)	one (before auxiliary count words)	satu (sebelum kata bantu bilangan/numeralia)	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§ 34a	NA	NA
 11_1683685818	k	103	9	ka- + PNL	6	bildet die intensive Form der Verben	Forms the intensive form of verbs	Membentuk bentuk intensif dari kata kerja	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§ 42	NA	NA
 11_1683685949	k	103	10	ka- ... -aˀa	NA	wir (in, mehr als 2 Personen) pronominales Affix (1.Pl in)	We (inclusive , more than 2 people) pronoun affix (1st Person Plural inclusive)	Kami (inklusif, lebih dari 2 orang) imbuhan kata ganti (orang pertama jamak inklusif)	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§§ 151, 16	NA	NA
 11_1683686300	k	103	11	-ka	NA	unser, von mir und dir Possessivsuffix (1.Pl in)	our , of me and you: possessive suffix (1st Person Plural inclusive)	kami, aku dan kamu: akhiran/sufiks posesif/kepemilikan (Orang Pertama Jamak inklusif)	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	§ 11	NA	NA
@@ -1668,7 +1668,7 @@ stem_id	kms_Alphabet	kms_page	kms_entry_no	stem_form	stem_homonymID	stem_DE	stem
 9_1683777349	k	143	8	kĩxõ	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	vgl kĩhĩ = kĩhũ	compare kĩhĩ = kĩhũ	bandingkan kĩhĩ = kĩhũ
 9_1683777417	k	143	9	kĩhũ	NA	NA	NA	NA	kĩhĩ	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
 9_1683777702	k	144	1	ekixuda	NA	Ledige(r)	unmarried person (m/f)	orang yang belum menikah (laki-laki/perempuan)	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
-9_1683777864	k	144	2	ekixudo	NA	1. Blattrippe, trockene Kokospalmenblātter ; 2. Besen	1. Leaf vein , dry coconut palm leaves ; 2. Broom	1. Urat daun, daun kelapa kering; 2. Sapu	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	H16 èkiehoedo 'nerf van het kokosblad ; niet brandende toorts'	H16 èkiehoedo 'coconut leaf vein ; unburning torch'	H16 èkiehoedo 'urat daun kelapa; obor yang tidak terbakar'
+9_1683777864	k	144	2	ekixudo	NA	1. Blattrippe, trockene Kokospalmenblätter ; 2. Besen	1. Leaf vein , dry coconut palm leaves ; 2. Broom	1. Urat daun, daun kelapa kering; 2. Sapu	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	H16 èkiehoedo 'nerf van het kokosblad ; niet brandende toorts'	H16 èkiehoedo 'coconut leaf vein ; unburning torch'	H16 èkiehoedo 'urat daun kelapa; obor yang tidak terbakar'
 9_1683777957	k	144	3	ekixũˀẽˀõ	NA	d Neugeborene	newborn (m/f/n)	bayi baru lahir (laki/perempuan/netral)	ekahũˀẽˀõ	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	hũˀẽˀõ	NA	NA	NA	NA	NA	NA	NA
 9_1683778047	k	144	4	ekixupapa	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	s ekixo²	see ekixo²	lihat ekixo²
 9_1683778142	k	144	5	kiˀi	1	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
@@ -1933,7 +1933,7 @@ stem_id	kms_Alphabet	kms_page	kms_entry_no	stem_form	stem_homonymID	stem_DE	stem
 19_1683761862	k	168	5	ekõˀṍ:ĩ́ˀĩ	NA	weiße Haare	White hair	Rambut putih	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
 19_1683762001	k	168	6	koˀokaˀa	NA	bete!	Pray!	Berdoa!	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
 19_1683762045	k	168	7	ekõˀõkãˀã	NA	Kern	core	inti	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
-19_1683762152	k	168	8	kõˀõ kapũ̄	NA	Mitternacht	midnight	tengah malam	kõ?ã kapũũ	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
+19_1683762152	k	168	8	kõˀõ kapũũ	NA	Mitternacht	midnight	tengah malam	kõ?ã kapũũ	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
 19_1683762313	k	168	9	ekoˀokáyo	NA	Baumart	Tree species	Spesies pohon	ekikoˀóka	NA	NA	NA	(arch, G13,20) ekikoˀóka	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	ekikoˀóka	NA	NA
 19_1683762397	k	168	10	ekoˀoki	NA	Rückseite, Rückwand	Back , back wall	bagian belakang, dinding belakang	NA	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA
 19_1683762450	k	168	12	koˀolixi	NA	NA	NA	NA	koˀodixi	NA	NA	NA	NA	NA	NA	NA	NULL	NULL	NA	NA	NA	NA	NA	NA	NA	NA

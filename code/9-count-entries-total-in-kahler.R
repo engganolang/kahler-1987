@@ -11,6 +11,11 @@
 
 
 # Count contribution by the transcriber
+kahler_dict <- read_rds("data-main/kahler_dict.rds")
+transcriber <- read_csv2(file = "data-raw/primary/20230719-kahler-done-master.csv", 
+                         skip = 9237, n_max = 17) |> 
+  select(id, name) |> 
+  (\(.) .[-c(1:5),])()
 kahler_dict |> 
   mutate(transcriber_id = as.double(str_extract(stem_id, "^[^_]+(?=_)"))) |> 
   left_join(transcriber |> 

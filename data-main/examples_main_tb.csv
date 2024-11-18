@@ -46,7 +46,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 10_1684205147,10_1684205147_0,ˀua kikohéa,ich gleite ab/aus (wie der ekãmãã-Fisch),I slide off (like the ekãmãã fish),Saya meluncur (seperti ikan ekãmãã),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,G56,G56,G56,NA,NA,NA,NA
 10_1684206125,10_1684206125_0,kikõhẽãˀã́ho:i,beschützen,to protect,melindungi,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,Nǃ??,Nǃ??,Nǃ??,NA,NA,NA,NA,NA,NA,NA
 10_1684206125,10_1684206125_1,kikõhẽãˀáho:i ˀua iˀioo ukohéaˀa,ich schütze mich mit einem Windschirm,I protect myself with a windscreen,Saya melindungi diri saya dengan pelindung (dari) angin,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-10_1684206125,10_1684206125_2,kidikoheaˀáho:i,beschūtzt werden,to be protected,dilindungi,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+10_1684206125,10_1684206125_2,kidikoheaˀáho:i,beschützt werden,to be protected,dilindungi,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 10_1684206125,10_1684206125_3,edikoheaˀaho:i,(noun) Beschützte,protected (people/things) (noun),(orang/benda) yang dilindungi,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 10_1684206269,10_1684206269_0,ekehe pakoheda,ein pakoheda - Beil (das man angeblich bei Chinesen eingetauscht hat),a pakoheda hatchet (said to have been traded with the Chinese),kapak pakoheda (konon telah diperdagangkan dengan orang Cina),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,cultural item,NA,NA,NA
 10_1684208544,10_1684208544_0,ekõhõ,"(noun) Schwarze , Dunkle , Schmutz","Black , dark , dirt (noun)","Hitam , gelap , kotoran (kata benda)",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -595,7 +595,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 11_1683690932,11_1683690932_5,Kaˀahə́ao kahanẽõmĩ,Name eines Subclans,Name of a subclan,Nama submarga,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,proper name,NA,NA,NA
 11_1683690932,11_1683690932_6,Kaˀahə́ao kapoˀo:udi,Name eines Subclans,Name of a subclan,Nama submarga,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,proper name,NA,NA,NA
 11_1683865326,11_1683865326_0,dabaˀakaˀá:iˀio,sie führten Krieg,They waged war,Mereka mengobarkan perang,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,cultural event/war,NA,NA,NA
-11_1683865326,11_1683865326_1,eaˀakaˀá:iˀio,"das Kriegfūhren , Kämpfen","waging war , fighting (noun)","peperangan , pertempuran (kata benda)",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,cultural event/war,NA,NA,NA
+11_1683865326,11_1683865326_1,eaˀakaˀá:iˀio,"das Kriegführen , Kämpfen","waging war , fighting (noun)","peperangan , pertempuran (kata benda)",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,cultural event/war,NA,NA,NA
 11_1683865326,11_1683865326_2,kiˀobu baka:iˀioˀoi,"sich anschicken , jmd zu bekriegen",to get ready to fight someone,bersiap-siap melawan seseorang,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,cultural event/war,NA,NA,NA
 11_1683865493,11_1683865493_0,kikaˀaka,ohnmächtig sein,to be unconscious,menjadi tidak sadar,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,cognition,NA,NA,NA
 11_1683865493,11_1683865493_1,eakaˀaka,Ohnmacht,fainting (noun),pingsan (kata benda),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -807,7 +807,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 11_1684988020,11_1684988020_0,hoo pamãhã:ũmã,es dämmert bereits,it is already dawning,sudah fajar,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,time,NA,NA,NA
 11_1684988020,11_1684988020_1,kapahã:ũmãnã,es wird Morgen,it will be morning (it is dawning),hari akan menjadi pagi (fajar menyingsing),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,time,NA,NA,NA
 11_1684988020,11_1684988020_2,pahã:ũhũmãnã,früh morgens,early in the morning,pagi-pagi sekali,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,time,NA,NA,NA
-11_1684988020,11_1684988020_3,eamãhã:ũmã,Abenddāmmerung,Dusk,senja,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,time,NA,NA,NA
+11_1684988020,11_1684988020_3,eamãhã:ũmã,Abenddämmerung,Dusk,senja,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,time,NA,NA,NA
 11_1684988372,11_1684988372_0,pahũmãnã-hũmãnã,früh morgens,early in the morning,pagi-pagi sekali,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,time,NA,NA,NA
 11_1684988372,11_1684988372_1,pahũmãnã éiˀie,diesen = heute Morgen,this = this morning,ini = pagi ini,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,§ 29b,§ 29b,§ 29b,time,NA,NA,NA
 11_1684988451,11_1684988451_0,kapãĩ,sauer,sour,asam,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,taste,NA,NA,NA
@@ -825,7 +825,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 11_1684990550,11_1684990550_0,kipaka,"schimmeln , verschimmelt","to go mouldy , mouldy","menjadi berjamur , berjamur",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,H16 kiepaka 'bleek van gelaatskleur' ; s ekerehapaka ukuo,H16 kiepaka 'pale in complexion' ; see ekerehapaka ukuo,H16 kiepaka 'kulitnya pucat' ; lihat ekerehapaka ukuo,NA,NA,NA,NA
 11_1684990550,11_1684990550_1,hoo (bu)paka,bereits verschimmelt,already mouldy,sudah berjamur,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 11_1684990550,11_1684990550_2,kipakadi,etwas verschimmeln lassen,to let something go mouldy,membiarkan sesuatu menjadi berjamur,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-11_1684990550,11_1684990550_3,edipakadi,"das , was man verschimmeln lāßt",that which is allowed to go mouldy,apa yang dibiarkan berjamur,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+11_1684990550,11_1684990550_3,edipakadi,"das , was man verschimmeln läßt",that which is allowed to go mouldy,apa yang dibiarkan berjamur,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 11_1684996533,11_1684996533_0,kipakaˀã́:ṹãˀã,"wissen , kennen , etwas verstehen","to know , to know , to understand something","mengetahui , mengetahui , memahami sesuatu",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 11_1684996533,11_1684996533_1,edipakaˀã:ũãˀã,das Gewußte,the known,yang diketahui,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 11_1684996533,11_1684996533_2,kamãkãˀã́:ṹãˀã,"klug , gescheit , wissend","wise , clever , knowing","bijaksana , pandai , mengetahui",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -2019,7 +2019,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 12_1687792789,12_1687792789_0,kinõnõnã,"(Früchte) herabfallen , (Fötus) zu früh geboren weden","(fruits) fall down , (fetus) be born too early","(buah) jatuh , (janin) lahir terlalu dini",kanõnõnã,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,motion; polysemy,NA,NA,NA
 12_1687792909,12_1687792909_0,kinõñãˀã,(um)graben,to dig/plough,menggali/membajak,NA,NA,NA,NA,NA,NA,NA,NA,NA,ĩnõĩ,NA,NA,NA,NA,NA,NA,NA,caused motion,NA,NA,NA
 12_1687792909,12_1687792909_1,enĩnõñãˀã,(noun) Umgegrabene,ploughed (things) (noun),(benda) yang dibajak,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,caused motion,NA,NA,NA
-12_1687793135,12_1687793135_0,kinõˀõã́hã,"so tun (wie gesagt) , so sein , bestätigen","do so (as said) , be so , confirm","lakukanlah (seperti yang dikatakan) , jadilah demikian , konfirmasi",kanõˀõã̄hã,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,§ 35i,§ 35i,§ 35i,NA,NA,NA,NA
+12_1687793135,12_1687793135_0,kinõˀõã́hã,"so tun (wie gesagt) , so sein , bestätigen","do so (as said) , be so , confirm","lakukanlah (seperti yang dikatakan) , jadilah demikian , konfirmasi",kanõˀõããhã,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,§ 35i,§ 35i,§ 35i,NA,NA,NA,NA
 12_1687793135,12_1687793135_1,hoo mũnõˀõã́hã,bestätigte bereits,already confirmed,sudah terkonfirmasi,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687793573,12_1687793573_0,kanõˀṍhõ,"auf der Schulter tragen , an einem Stock über der Schulter tragen","to carry on the shoulder , to carry on a stick over the shoulder","membawa di bahu , membawa tongkat di atas bahu",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,carrying,NA,NA,NA
 12_1687793573,12_1687793573_1,hoo mãnõˀõhõ,trug bereits suf der Schulter,already carried on the shoulder,sudah memikul di bahu,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,carrying,NA,NA,NA
@@ -2036,7 +2036,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 12_1687794851,12_1687794851_3,ki kipanõpãhã:ĩ eˀana,"sie , die Dorfgenossen sind",they who are villagers,mereka yang merupakan penduduk desa,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,84z12 ; vgl [ˀ]opaha:iã,84z12 ; cf. [ˀ]opaha:iã,84z12 ; bdk. [ˀ]opaha:iã,NA,NA,NA,NA
 12_1687821823,12_1687821823_0,kanũã,"z̈ahlen , rechnen","to count , calculate","menghitung , mengkalkulasi",karua,NA,NA,NA,karua (P2),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687821823,12_1687821823_1,eanũã,"das Zählen , Rechnen","the counting , the calculating","penghitungan , kalkulasi",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-12_1687821961,12_1687821961_0,kinũ̄ãnĩ,"zum zweiten Male tun , zweimal machen , wiederholen","to do for the second time , to do twice , to repeat","melakukan untuk kedua kalinya , melakukan dua kali , mengulangi",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,§ 36b,§ 36b,§ 36b,time,NA,NA,NA
+12_1687821961,12_1687821961_0,kinũũãnĩ,"zum zweiten Male tun , zweimal machen , wiederholen","to do for the second time , to do twice , to repeat","melakukan untuk kedua kalinya , melakukan dua kali , mengulangi",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,§ 36b,§ 36b,§ 36b,time,NA,NA,NA
 12_1687822093,12_1687822093_0,kanũãnũã,grob (körnig),coarse (grainy),kasar (berbintik-bintik),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687822093,12_1687822093_1,kanũãnũã earekeˀe:ibu,den Gestampftes ist grob,the (thing) stomped is coarse,(benda) yang diinjak itu kasar,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687822221,12_1687822221_0,nũkĩ-nũkĩ,sehr klein ; kleine (Pl),very small ; small (plural),sangat kecil ; kecil (jamak),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,size,NA,NA,NA
@@ -2052,7 +2052,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 12_1687822740,12_1687822740_4,enãnũkõˀõ,(noun) Gerauchte,(things) smoked (noun),(benda) yang diasapi,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,smoking,NA,NA,NA
 12_1687822740,12_1687822740_5,eũnũkõˀõ,"das , womit man raucht = Pfeife",what you smoke with = pipe,apa yang Anda gunakan untuk merokok = pipa,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,smoking; cultural item,NA,NA,NA
 12_1687822953,12_1687822953_0,kaṅũmĩĩ,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,kũmĩĩ,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-12_1687823031,12_1687823031_0,panũnĩ̄ãˀã,flüstere etwasǃ,whisper somethingǃ (sg),bisikkan sesuatuǃ (bentuk tunggal),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,speech act verb,NA,NA,NA
+12_1687823031,12_1687823031_0,panũnĩĩãˀã,flüstere etwasǃ,whisper somethingǃ (sg),bisikkan sesuatuǃ (bentuk tunggal),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,speech act verb,NA,NA,NA
 12_1687823147,12_1687823147_0,kanũnũ,vollrund,Full round,Putaran penuh,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,128z27: kaˀanũnũ ; G69: kianũnũ 'rund',128z27: kaˀanũnũ ; G69: kianũnũ 'round',128z27: kaˀanũnũ ; G69: kianũnũ 'bulat',shape,NA,NA,NA
 12_1687823578,12_1687823578_0,kinũnũ,suchen,to search,mencari,kahinũnũ; kamãhĩnũnũ,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,searching,NA,NA,NA
 12_1687823578,12_1687823578_1,inũnũpẽ,suchǃ,search! (sg),cari! (bentuk tunggal),NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,ML carilah,ML carilah,ML carilah,NA,NA,NA,searching,NA,NA,NA
@@ -2061,9 +2061,9 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 12_1687823578,12_1687823578_12,enũnũhũĩyõ,zu Fragendes,thing to be asked (noun),hal yang akan ditanyakan (kata benda),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687823578,12_1687823578_2,hoo mĩnũnũ,suchte bereits,was already looking,sudah mencari,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,searching,NA,NA,NA
 12_1687823578,12_1687823578_3,enĩnũnũ,(noun) Gesuchte,(things) sought (noun),(benda) yang dicari,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,searching,NA,NA,NA
-12_1687823578,12_1687823578_4,kanũnũ̄ãnã,beinahe verschwunden,almost disappeared,hampir menghilang,anə̃nẽã,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,G21,G21,G21,NA,NA,NA,NA
+12_1687823578,12_1687823578_4,kanũnũũãnã,beinahe verschwunden,almost disappeared,hampir menghilang,anə̃nẽã,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,G21,G21,G21,NA,NA,NA,NA
 12_1687823578,12_1687823578_5,nũnṹhũĩ,frage!,ask!,tanya!,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,"BAR tuluŋi , Sim totuˀ²","BAR tuluŋi , Sim totuˀ²","BAR tuluŋi, Sim totuˀ²",NA,NA,NA,NA,NA,NA,NA
-12_1687823578,12_1687823578_6,kinũnũ̄hũĩ,fragen,to ask,bertanya,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+12_1687823578,12_1687823578_6,kinũnũũhũĩ,fragen,to ask,bertanya,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687823578,12_1687823578_7,kinũnũhũĩyã,fragen werden,to ask (in future),akan bertanya,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687823578,12_1687823578_8,kamãnũnũhṹĩãˀã,laßt uns fragenǃ,let's askǃ,mari kita tanya!,NA,NA,NA,NA,NA,NA,"""""",NA,"""""",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 12_1687823578,12_1687823578_9,kai mãnũnṹhũĩ,"kommen , um zu fragen",come in order to ask,datang untuk bertanya,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -3880,7 +3880,7 @@ stem_id,example_id,example_form,ex_DE,ex_EN,ex_IDN,example_variant,ex_variant_DE
 19_1684293297,19_1684293297_2,kinĩkũã,gerechnet werden,to be counted,dihitung,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,counting,NA,NA,NA
 19_1684293297,19_1684293297_3,eanũã,"das Zählen , Rechnen","the counting , calculating","penghitungan , penghitungan",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,counting,NA,NA,NA
 19_1684293297,19_1684293297_4,ekṹãhã:õ,zu Zählendes,things to be counted,hal-hal yang harus dihitung,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,counting,NA,NA,NA
-19_1684293297,19_1684293297_5,ekũãˀã́hõ,(noun) zum Messen zu Benutzende,the one to be used for measuring,yang akan digunakan untuk mengukur,NA,NA,NA,NA,NA,NA,NA,NA,NA,kȭ?,NA,NA,NA,NA,NA,NA,NA,counting,NA,NA,NA
+19_1684293297,19_1684293297_5,ekũãˀã́hõ,(noun) zum Messen zu Benutzende,the one to be used for measuring,yang akan digunakan untuk mengukur,NA,NA,NA,NA,NA,NA,NA,NA,NA,kõõ?,NA,NA,NA,NA,NA,NA,NA,counting,NA,NA,NA
 19_1684294139,19_1684294139_0,kikuˀa,beginnen,to start,memulai,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,begin,NA,NA,NA
 19_1684294139,19_1684294139_1,eukuˀa,Beginn,"start , beginning","awal , mula",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,begin,NA,NA,NA
 19_1684294379,19_1684294379_0,kipakuˀa,"wegwerfen , fortwerfen","throw away , discard","buang , buang",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,caused motion,NA,NA,NA

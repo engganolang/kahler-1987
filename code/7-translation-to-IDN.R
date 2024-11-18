@@ -244,10 +244,33 @@ stem_main_tb <- stem_all4 |>
   # change the glottal stop to superscript
   mutate(across(where(is.character), ~str_replace_all(., "ʔ", "ˀ")))
 
+## C-5 CHECK WHICH COLUMNS STILL CONTAIN VALUES with long-vowel marker ======
+stem_main_tb |> 
+  select(where(function(x) any(grepl("̄", x)))) |>
+  filter(if_any(where(is.character), ~str_detect(., "̄")))
+# stem_form stem_DE                                                                                 
+# <chr>     <chr>                                                                                   
+#   1 eˀahã́ĩ    grūner Papagei                                                                          
+# 2 ka-       er, sie, es; wir (in) pronominales Prāfix (3.Sg und 1.Pl in) vor Verben mit b(u)-, m(ũ)-
+#   3 ka-       eins (vor Hilfszāhlwörtern)                                                             
+# 4 ekixudo   1. Blattrippe, trockene Kokospalmenblātter ; 2. Besen                                   
+# 5 kõˀõ kapũ̄ Mitternacht
+
+### C-5-1 Replace long-vowel markers with diarisis in stem_DE =====
+stem_main_tb <- stem_main_tb |> 
+  mutate(stem_DE = str_replace_all(stem_DE, "̄", "̈"))
+### C-5-2 Replace reduplicate vowels with long vowel markers in stem_form ====
+stem_main_tb <- stem_main_tb |> 
+  mutate(stem_form = str_replace_all(stem_form, "(.̃)̄", "\\1\\1"))
+
+### C-5-3 Below add script to process orthography before saving ======
+
+
 ### SAVE THE STEM DATA TO SHARE TO GITHUB =====
 #### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
 write_csv(stem_main_tb, file = "data-main/stem_main_tb.csv") 
 write_tsv(stem_main_tb, file = "data-main/stem_main_tb.tsv")
+write_rds(stem_main_tb, file = "data-main/stem_main_tb.rds")
 
 # D. Read-in the IDN translation for EXAMPLE FORMS that has been checked ====
 # See the GitHub repo for the checked Indonesian translation at https://github.com/engganolang/kahler-idn-translation-checking
@@ -334,10 +357,24 @@ ex_main_tb <- example_all5 |>
   # change the glottal stop to superscript
   mutate(across(where(is.character), ~str_replace_all(., "ʔ", "ˀ")))
 
+## D-6 CHECK WHICH COLUMNS STILL CONTAIN VALUES with long-vowel marker ======
+ex_main_tb |> 
+  select(where(function(x) any(grepl("̄", x)))) |>
+  filter(if_any(where(is.character), ~str_detect(., "̄")))
+
+### D-6-1 Replace long-vowel markers with diarisis in ex_DE =====
+ex_main_tb <- ex_main_tb |> 
+  mutate(ex_DE = str_replace_all(ex_DE, "̄", "̈"))
+### C-5-2 Replace reduplicate vowels with long vowel markers in example_form, example_variant, and example_source_form ====
+ex_main_tb <- ex_main_tb |> 
+  mutate(across(matches("example_(form|variant|source_form)"), 
+                ~str_replace_all(., "([aiueo]̃)̄", "\\1\\1")))
+
 ### SAVE THE EXAMPLE DATA TO SHARE TO GITHUB =====
 #### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
 write_csv(ex_main_tb, file = "data-main/examples_main_tb.csv") 
 write_tsv(ex_main_tb, file = "data-main/examples_main_tb.tsv")
+write_rds(ex_main_tb, file = "data-main/examples_main_tb.rds")
 
 # E. Combine stem_main_tb with ex_main_tb by the "stem_id" column =====
 kahler_dict <- stem_main_tb |> 
@@ -379,3 +416,4 @@ kahler_dict <- kahler_dict |>
 #### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
 write_csv(kahler_dict, file = "data-main/kahler_dict.csv") 
 write_tsv(kahler_dict, file = "data-main/kahler_dict.tsv")
+write_rds(kahler_dict, file = "data-main/kahler_dict.rds")
