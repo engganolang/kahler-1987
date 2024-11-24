@@ -263,14 +263,6 @@ stem_main_tb <- stem_main_tb |>
 stem_main_tb <- stem_main_tb |> 
   mutate(stem_form = str_replace_all(stem_form, "(.̃)̄", "\\1\\1"))
 
-### C-5-3 Below add script to process orthography before saving ======
-
-
-### SAVE THE STEM DATA TO SHARE TO GITHUB =====
-#### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
-write_csv(stem_main_tb, file = "data-main/stem_main_tb.csv") 
-write_tsv(stem_main_tb, file = "data-main/stem_main_tb.tsv")
-write_rds(stem_main_tb, file = "data-main/stem_main_tb.rds")
 
 # D. Read-in the IDN translation for EXAMPLE FORMS that has been checked ====
 # See the GitHub repo for the checked Indonesian translation at https://github.com/engganolang/kahler-idn-translation-checking
@@ -370,11 +362,8 @@ ex_main_tb <- ex_main_tb |>
   mutate(across(matches("example_(form|variant|source_form)"), 
                 ~str_replace_all(., "([aiueo]̃)̄", "\\1\\1")))
 
-### SAVE THE EXAMPLE DATA TO SHARE TO GITHUB =====
-#### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
-write_csv(ex_main_tb, file = "data-main/examples_main_tb.csv") 
-write_tsv(ex_main_tb, file = "data-main/examples_main_tb.tsv")
-write_rds(ex_main_tb, file = "data-main/examples_main_tb.rds")
+## C-5-3 Below add script to process orthography before saving ======
+source("code/10-orthography.R")
 
 # E. Combine stem_main_tb with ex_main_tb by the "stem_id" column =====
 kahler_dict <- stem_main_tb |> 
@@ -417,3 +406,15 @@ kahler_dict <- kahler_dict |>
 write_csv(kahler_dict, file = "data-main/kahler_dict.csv") 
 write_tsv(kahler_dict, file = "data-main/kahler_dict.tsv")
 write_rds(kahler_dict, file = "data-main/kahler_dict.rds")
+
+## SAVE THE EXAMPLE DATA TO SHARE TO GITHUB =====
+#### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
+write_csv(ex_main_tb, file = "data-main/examples_main_tb.csv") 
+write_tsv(ex_main_tb, file = "data-main/examples_main_tb.tsv")
+write_rds(ex_main_tb, file = "data-main/examples_main_tb.rds")
+
+## SAVE THE STEM DATA TO SHARE TO GITHUB =====
+#### Check at https://github.com/engganolang/kahler-1987/tree/main/data-main
+write_csv(stem_main_tb, file = "data-main/stem_main_tb.csv") 
+write_tsv(stem_main_tb, file = "data-main/stem_main_tb.tsv")
+write_rds(stem_main_tb, file = "data-main/stem_main_tb.rds")
