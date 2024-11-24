@@ -1,0 +1,95 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Retro-digitised Enggano-German dictionary derived from
+  Kähler's (1987) “Enggano-Deutsches Wörterbuch”
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: Gede Primahadi Wijaya
+    family-names: Rajeg
+    email: gede.rajeg@ling-phil.ox.ac.uk
+    name-particle: Gede Primahadi Wijaya
+    affiliation: >-
+      University of Oxford, UK; Centre for Interdisciplinary
+      Research on the Humanities and Social Sciences
+      (CIRHSS) & CompLexico Research Group, Udayana
+      University
+    orcid: 'https://orcid.org/0000-0002-2047-8621'
+  - given-names: Cokorda Rai Adi
+    family-names: Pramartha
+    affiliation: >-
+      Centre for Interdisciplinary Research on the
+      Humanities and Social Sciences (CIRHSS), Udayana
+      University
+    orcid: 'https://orcid.org/0000-0002-2835-3989'
+    email: cokorda@unud.ac.id
+  - given-names: Ida Bagus Gede
+    family-names: Sarasvananda
+    affiliation: Institut Bisnis dan Teknologi Indonesia (INSTIKI)
+    orcid: 'https://orcid.org/0000-0002-2020-5148'
+    email: sarasvananda@instiki.ac.id
+  - given-names: Putu Wahyu
+    family-names: Widiatmika
+    affiliation: Udayana University
+    email: wahyuw.9b@gmail.com
+  - given-names: Ida Bagus Made Ari
+    family-names: Segara
+    affiliation: Udayana University
+    email: segara.2280111003@student.unud.ac.id
+  - given-names: Yul Fulgensia Rusman
+    family-names: Pita
+    affiliation: Udayana University
+    email: pita.2280111019@student.unud.ac.id
+  - given-names: Fitriani Putri
+    family-names: Koemba
+    affiliation: Udayana University
+    email: koembafitri@gmail.com
+  - given-names: I Gede Semara Dharma
+    family-names: Putra
+    email: semaradharmaputra12@gmail.com
+    affiliation: Udayana University
+    orcid: 'https://orcid.org/0009-0000-6711-0878'
+  - given-names: Putu Dea Indah
+    family-names: Kartini
+    affiliation: Udayana University
+    email: deaindahk21@gmail.com
+  - given-names: Ni Putu Wulan
+    family-names: Lestari
+    email: wulanlestari231@gmail.com
+  - given-names: Barnaby
+    family-names: Burleigh
+    affiliation: University of Oxford
+    orcid: 'https://orcid.org/0009-0009-2295-9048'
+repository-code: 'https://github.com/engganolang/kahler-1987'
+abstract: >-
+  This is a hand-digitised Enggano-German Dictionary derived
+  from Hans Kähler's (1987) "Enggano-Deutsches Wörterbuch".
+  We crowdsourced the digitisation process by transcribing
+  the dictionary's content into an online database system
+  set up by the second and third authors. The database is
+  exported into a .csv file to be further processed, such as
+  fixing typos, incorrect mapping of the entry element,
+  providing the English and Indonesian glosses, and
+  standardising the orthography.
+keywords:
+  - Enggano
+  - Enggano-German Dictionary
+  - Lexical Database
+  - Retro-Digitised Dictionary
+  - Endangered Language
+  - Barrier-Island Languages
+  - Indonesian Languages
+  - Lexicography
+  - Digital Lexicography
+  - Lexical Resources
+  - Crowdsourcing Lexicography
+  - Digitisation
+license: CC-BY-NC-SA-4.0
+commit: 91425c1e8a3a31afeb569944e73c39218b88bc60
+version: 0.0.1
+date-released: '2024-11-24'
