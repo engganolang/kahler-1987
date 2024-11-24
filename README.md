@@ -1,12 +1,18 @@
-Retro-digitised Enggano-German Dictionary by Hans Kähler (1987)
+Retro-digitised Enggano-German dictionary derived from Kähler’s (1987)
+“Enggano-Deutsches Wörterbuch”
 ================
 [Gede Primahadi Wijaya
 Rajeg](https://www.ling-phil.ox.ac.uk/people/gede-rajeg)
 <a itemprop="sameAs" content="https://orcid.org/0000-0002-2047-8621" href="https://orcid.org/0000-0002-2047-8621" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>,
-Cokorda Pramartha, Ida Bagus Gede Sarasvananda, Putu Wahyu Widiatmika,
-Ida Bagus Made Ari Segara, Yul Fulgensia Rusman Pita, Fitriani Putri
-Koemba, I Gede Semara Dharma Putra, Putu Dea Indah Kartini, Ni Putu
-Wulan Lestari, Barnaby Burleigh
+Cokorda Pramartha
+<a itemprop="sameAs" content="https://orcid.org/0000-0002-2835-3989" href="https://orcid.org/0000-0002-2835-3989" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>,
+Ida Bagus Gede Sarasvananda
+<a itemprop="sameAs" content="https://orcid.org/0000-0002-2020-5148" href="https://orcid.org/0000-0002-2020-5148" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>,
+Putu Wahyu Widiatmika, Ida Bagus Made Ari Segara, Yul Fulgensia Rusman
+Pita, Fitriani Putri Koemba, I Gede Semara Dharma Putra
+<a itemprop="sameAs" content="https://orcid.org/0009-0000-6711-0878" href="https://orcid.org/0009-0000-6711-0878" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>,
+Putu Dea Indah Kartini, Ni Putu Wulan Lestari, Barnaby Burleigh
+<a itemprop="sameAs" content="https://orcid.org/0009-0009-2295-9048" href="https://orcid.org/0009-0009-2295-9048" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -45,7 +51,7 @@ task was substantially supported by the core members of the digitisation
 team:
 
 1.  [Cokorda Rai Adi
-    Paramartha](https://udayananetworking.unud.ac.id/lecturer/2379-cokorda-rai-adi-pramartha)
+    Pramartha](https://udayananetworking.unud.ac.id/lecturer/2379-cokorda-rai-adi-pramartha)
     (Udayana University)
     - consultant in the AHRC Lexical Resources project
 
@@ -66,20 +72,22 @@ team:
     research assistant and transcriber)
 6.  [Fitriani Putri
     Koemba](https://figshare.com/authors/Fitri_Koemba/16637976) (Udayana
-    University, undergrad. student research assistant and transcriber)
+    University, undergraduate student research assistant and
+    transcriber)
 7.  [I Gede Semara Dharma
     Putra](https://figshare.com/authors/I_Gede_Semara_Dharma_Putra/11755628)
-    (Udayana University, undergrad. student research assistant and
+    (Udayana University, undergraduate student research assistant and
     transcriber)
 8.  [Putu Dea Indah
-    Kartini](https://www.researchgate.net/profile/Putu-Kartini) (Udayana
-    University, undergrad. student research assistant and transcriber)
+    Kartini](https://figshare.com/authors/Putu_Dea_Indah_Kartini/20281689)
+    (Udayana University, undergraduate student research assistant and
+    transcriber)
 9.  [Ni Putu Wulan
     Lestari](https://id.linkedin.com/in/ni-putu-wulan-lestari-572962179)
     (Independent researcher; transcriber)
 10. [Barnaby Burleigh](https://philpeople.org/profiles/barnaby-burleigh)
-    (University of Oxford, UK; proof-reader of the English translation
-    of the original German gloss)
+    (University of Oxford, proof-reader of the English translation of
+    the German gloss)
 
 The work on the manual checking of the Indonesian translation from the
 English translation is available
@@ -95,7 +103,7 @@ al. 2024](#ref-krausse_enolex_2024); [Rajeg, Krauße & Pramartha
 
 <div id="ref-kähler1987" class="csl-entry">
 
-Kähler, Hans. 1987. *Enggano-deutsches wörterbuch* (Veröffentlichungen
+Kähler, Hans. 1987. *Enggano-Deutsches wörterbuch* (Veröffentlichungen
 Des Seminars Für Indonesische Und Südseesprachen Der Universität Hamburg
 14). Berlin; Hamburg: Dietrich Reimer Verlag.
 
