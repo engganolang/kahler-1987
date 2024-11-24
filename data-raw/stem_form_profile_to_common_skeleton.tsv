@@ -1,4 +1,17 @@
 Left	Grapheme	Right	Class	Replacement	Phoneme	Frequency	Codepoint	UnicodeName
+	\'			'				
+	\!			!				
+	\;			;				
+	\<			<				
+	\=			=				
+	¹			¹				
+	2			2				
+	²			²				
+	³			³				
+	⁴			⁴				
+	ä			ä				
+	O			O				
+	Õ			Õ				
 (ie)	h			x				
 (ai)	h			x				
 (?<!a)i 	h			x				
@@ -35,7 +48,7 @@ Left	Grapheme	Right	Class	Replacement	Phoneme	Frequency	Codepoint	UnicodeName
 	D			D		6	U+0044	LATIN CAPITAL LETTER D
 	e			e		1723	U+0065	LATIN SMALL LETTER E
 	E			E		1	U+0045	LATIN CAPITAL LETTER E
-	é			é		35	U+0065, U+0301	LATIN SMALL LETTER E, COMBINING ACUTE ACCENT
+	é			e		35	U+0065, U+0301	LATIN SMALL LETTER E, COMBINING ACUTE ACCENT
 	ẽ			ẽ		249	U+0065, U+0303	LATIN SMALL LETTER E, COMBINING TILDE
 	ẽ́			ẽ́		13	U+0065, U+0303, U+0301	LATIN SMALL LETTER E, COMBINING TILDE, COMBINING ACUTE ACCENT
 	ə			u̇		242	U+0259	LATIN SMALL LETTER SCHWA
