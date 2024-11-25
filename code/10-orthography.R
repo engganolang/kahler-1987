@@ -159,35 +159,35 @@ ex_main_tb |>
 # qlcData::write.profile(stem_main_tb$stem_form,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/stem_form_profile_to_original_skeleton.tsv")
+#                        file.out = "orthography/stem_form_profile_to_original_skeleton.tsv")
 # qlcData::write.profile(stem_main_tb$stem_form,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/stem_form_profile_to_common_skeleton.tsv")
+#                        file.out = "orthography/stem_form_profile_to_common_skeleton.tsv")
 # qlcData::write.profile(stem_main_tb$stem_formVarian,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/stem_variant_profile_to_original_skeleton.tsv")
+#                        file.out = "orthography/stem_variant_profile_to_original_skeleton.tsv")
 # qlcData::write.profile(stem_main_tb$stem_formVarian,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/stem_variant_profile_to_common_skeleton.tsv")
+#                        file.out = "orthography/stem_variant_profile_to_common_skeleton.tsv")
 # qlcData::write.profile(ex_main_tb$example_form,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/ex_form_profile_to_original_skeleton.tsv")
+#                        file.out = "orthography/ex_form_profile_to_original_skeleton.tsv")
 # qlcData::write.profile(ex_main_tb$example_variant,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/ex_variant_profile_to_original_skeleton.tsv")
+#                        file.out = "orthography/ex_variant_profile_to_original_skeleton.tsv")
 # qlcData::write.profile(ex_main_tb$example_form,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/ex_form_profile_to_common_skeleton.tsv")
+#                        file.out = "orthography/ex_form_profile_to_common_skeleton.tsv")
 # qlcData::write.profile(ex_main_tb$example_variant,
 #                        editing = TRUE,
 #                        info = TRUE,
-#                        file.out = "data-raw/ex_variant_profile_to_common_skeleton.tsv")
+#                        file.out = "orthography/ex_variant_profile_to_common_skeleton.tsv")
 
 
 ## STEM FORM ====
@@ -197,7 +197,7 @@ stem_main_tb <- stem_main_tb |>
 
 ### Tracing into the original forms ====
 stem_forms_orig <- qlcData::tokenize(stem_main_tb$stem_form,
-                                     profile = "data-raw/stem_form_profile_to_original_skeleton.tsv",
+                                     profile = "orthography/stem_form_profile_to_original_skeleton.tsv",
                                      method = "global",
                                      transliterate = "Replacement",
                                      ordering = NULL,
@@ -223,7 +223,7 @@ filter(stem_main_tb, stem_form %in% filter(as_tibble(stem_forms_orig$strings), s
 
 ### Tracing into the common transcription forms =====
 stem_forms_comm <- qlcData::tokenize(stem_main_tb$stem_form,
-                                     profile = "data-raw/stem_form_profile_to_common_skeleton.tsv",
+                                     profile = "orthography/stem_form_profile_to_common_skeleton.tsv",
                                      method = "global",
                                      transliterate = "Replacement",
                                      ordering = NULL,
@@ -245,7 +245,7 @@ stem_main_tb <- stem_main_tb |>
 
 ### Tracing into the common transcription forms ====
 ex_forms_comm <- qlcData::tokenize(ex_main_tb$example_form,
-                                   profile = "data-raw/ex_form_profile_to_common_skeleton.tsv",
+                                   profile = "orthography/ex_form_profile_to_common_skeleton.tsv",
                                    method = "global",
                                    transliterate = "Replacement",
                                    ordering = NULL,
@@ -267,7 +267,7 @@ ex_main_tb <- ex_main_tb |>
 ## STEM VARIANT FORM ====
 ### Tracing into the original form =====
 stem_variant_orig <- qlcData::tokenize(stem_main_tb$stem_formVarian,
-                                       profile = "data-raw/stem_variant_profile_to_original_skeleton.tsv",
+                                       profile = "orthography/stem_variant_profile_to_original_skeleton.tsv",
                                        method = "global",
                                        transliterate = "Replacement",
                                        ordering = NULL,
@@ -280,7 +280,7 @@ filter(stem_main_tb, stem_formVarian %in% filter(as_tibble(stem_variant_orig$str
   select(stem_formVarian)
 
 # stem_variant_orig$missing |> 
-#   write_tsv("data-raw/stem_variant_profile_to_original_missing.tsv")
+#   write_tsv("orthography/stem_variant_profile_to_original_missing.tsv")
 as_tibble(stem_variant_orig$strings)
 as_tibble(stem_variant_orig$strings) |> 
   # join characters of diphthong ========
@@ -291,7 +291,7 @@ mutate(transliterated = str_replace_all(transliterated, " : ", "͜")) |>
 
 ### Tracing into the common form =====
 stem_variant_comm <- qlcData::tokenize(stem_main_tb$stem_formVarian,
-                                       profile = "data-raw/stem_form_profile_to_common_skeleton.tsv",
+                                       profile = "orthography/stem_form_profile_to_common_skeleton.tsv",
                                        method = "global",
                                        transliterate = "Replacement",
                                        ordering = NULL,
@@ -299,7 +299,7 @@ stem_variant_comm <- qlcData::tokenize(stem_main_tb$stem_formVarian,
                                        sep.replace = "#",
                                        regex = TRUE)
 
-# write_tsv(stem_variant_comm$missing, "data-raw/stem_variant_profile_to_common_missing.tsv")
+# write_tsv(stem_variant_comm$missing, "orthography/stem_variant_profile_to_common_missing.tsv")
 
 ### CHECK THE CAPITAL GRAPHEME FOR VOWEL IN THE FORM ====
 filter(stem_main_tb, stem_formVarian %in% filter(as_tibble(stem_variant_comm$strings), str_detect(originals, "[AIUEO]"))$originals) |> 
@@ -322,14 +322,14 @@ stem_main_tb <- stem_main_tb |>
 
 ## EXAMPLE VARIANT FORM =====
 ex_variant_comm <- qlcData::tokenize(ex_main_tb$example_variant,
-                                     profile = "data-raw/ex_form_profile_to_common_skeleton.tsv",
+                                     profile = "orthography/ex_form_profile_to_common_skeleton.tsv",
                                      method = "global",
                                      transliterate = "Replacement",
                                      ordering = NULL,
                                      normalize = "NFC",
                                      sep.replace = "#",
                                      regex = TRUE)
-# ex_variant_comm$missing |> write_tsv("data-raw/ex_variant_profile_to_commong_missing.tsv")
+# ex_variant_comm$missing |> write_tsv("orthography/ex_variant_profile_to_commong_missing.tsv")
 ex_variant_comm_tb <- as_tibble(ex_variant_comm$strings) |> 
   # join characters of diphthong ========
 mutate(transliterated = str_replace_all(transliterated, " : ", ":")) |> 
