@@ -418,3 +418,9 @@ write_rds(ex_main_tb, file = "data-main/examples_main_tb.rds")
 write_csv(stem_main_tb, file = "data-main/stem_main_tb.csv") 
 write_tsv(stem_main_tb, file = "data-main/stem_main_tb.tsv")
 write_rds(stem_main_tb, file = "data-main/stem_main_tb.rds")
+
+
+## Create a skeleton data frame for variable description ====
+# kahler_dicts <- readr::read_rds("data-main/kahler_dict.rds")
+# tibble(VAR = colnames(kahler_dicts), DESC = "") |> 
+#   write_tsv("data-main/vardesc.tsv")
