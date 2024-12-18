@@ -6,8 +6,8 @@ title: >-
   Retro-digitised Enggano-German dictionary derived from
   Kähler's (1987) “Enggano-Deutsches Wörterbuch”
 message: >-
-  If you use this dataset, please cite it using the metadata
-  from this file.
+  Please cite this material if you use it for your research
+  or teaching
 type: dataset
 authors:
   - given-names: Gede Primahadi Wijaya
@@ -89,6 +89,5 @@ keywords:
   - Crowdsourcing Lexicography
   - Digitisation
 license: CC-BY-NC-SA-4.0
-commit: 91425c1e8a3a31afeb569944e73c39218b88bc60
-version: 0.0.1
-date-released: '2024-11-24'
+version: 0.0.2
+date-released: '2024-12-20'

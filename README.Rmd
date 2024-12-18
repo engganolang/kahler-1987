@@ -26,7 +26,11 @@ knitr::opts_chunk$set(
 
 # Overview
 
-Repository containing the R codes and the associated materials to process the retro-digitisation[^1] output of the Enggano-German Dictionary [@kähler1987]. My work in the digitisation task was substantially supported by the core members of the digitisation team:
+How to cite:
+
+> Rajeg, G. P. W., Pramartha, C. R. A., Sarasvananda, I. B. G., Widiatmika, P. W., Segara, I. B. M. A., Pita, Y. F. R., Koemba, F. P., Putra, I. G. S. D., Kartini, P. D. I., Lestari, N. P. W., & Burleigh, B. (2024). Retro-digitised Enggano-German dictionary derived from Kähler's (1987) “Enggano-Deutsches Wörterbuch” (Version 0.0.2) [Data set]. https://github.com/engganolang/kahler-1987
+
+The repository [@rajeg_kahler] contains the retro-digitised[^1] Enggano-German Dictionary [@kähler1987] in tabular format for three file types: .rds, .tsv, and .csv; they are available in this [sub-directory](https://github.com/engganolang/kahler-1987/tree/main/data-main). The column names of the data are explained [here](https://github.com/engganolang/kahler-1987/blob/main/data-main/README.md). In addition, this repository also shares the [R codes](https://github.com/engganolang/kahler-1987/tree/main/code) and associated materials to process the raw output of the digitisation process. My work in this sub-task was substantially supported by the core members of the digitisation team:
 
 [^1]: News related to the transcription of the Enggano-German dictionary are published [here](https://www.ling-phil.ox.ac.uk/news/2023/05/28/retro-digitisation-work-enggano-german-dictionary-udayana-university-indonesia) and [here](https://sasing.unud.ac.id/posts/boel-students-involved-in-research-project-led-by-researchers-from-the-university-of-oxford-uk)
 

@@ -44,11 +44,27 @@ BY-NC-SA 4.0
 
 # Overview
 
-Repository containing the R codes and the associated materials to
-process the retro-digitisation[^1] output of the Enggano-German
-Dictionary ([Kähler 1987](#ref-kähler1987)). My work in the digitisation
-task was substantially supported by the core members of the digitisation
-team:
+How to cite:
+
+> Rajeg, G. P. W., Pramartha, C. R. A., Sarasvananda, I. B. G.,
+> Widiatmika, P. W., Segara, I. B. M. A., Pita, Y. F. R., Koemba, F. P.,
+> Putra, I. G. S. D., Kartini, P. D. I., Lestari, N. P. W., & Burleigh,
+> B. (2024). Retro-digitised Enggano-German dictionary derived from
+> Kähler’s (1987) “Enggano-Deutsches Wörterbuch” (Version 0.0.2) \[Data
+> set\]. <https://github.com/engganolang/kahler-1987>
+
+The repository ([Rajeg et al. 2024](#ref-rajeg_kahler)) contains the
+retro-digitised[^1] Enggano-German Dictionary ([Kähler
+1987](#ref-kähler1987)) in tabular format for three file types: .rds,
+.tsv, and .csv; they are available in this
+[sub-directory](https://github.com/engganolang/kahler-1987/tree/main/data-main).
+The column names of the data are explained
+[here](https://github.com/engganolang/kahler-1987/blob/main/data-main/README.md).
+In addition, this repository also shares the [R
+codes](https://github.com/engganolang/kahler-1987/tree/main/code) and
+associated materials to process the raw output of the digitisation
+process. My work in this sub-task was substantially supported by the
+core members of the digitisation team:
 
 1.  [Cokorda Rai Adi
     Pramartha](https://udayananetworking.unud.ac.id/lecturer/2379-cokorda-rai-adi-pramartha)
@@ -127,6 +143,17 @@ Inoue, Naho Kawamoto & Makoto Sumiyoshi (eds.), *AsiaLex 2024
 proceedings: Asian Lexicography - Merging cutting-edge and established
 approaches*, 123–132. Toyo University, Tokyo, Japan.
 <https://doi.org/10.25446/oxford.27013864>.
+
+</div>
+
+<div id="ref-rajeg_kahler" class="csl-entry">
+
+Rajeg, Gede Primahadi Wijaya, Cokorda Rai Adi Pramartha, Ida Bagus Gede
+Sarasvananda, Putu Wahyu Widiatmika, Ida Bagus Made Ari Segara, Yul
+Fulgensia Rusman Pita, Fitriani Putri Koemba, et al. 2024.
+Retro-digitised Enggano-German dictionary derived from Kähler’s (1987)
+“Enggano-Deutsches Wörterbuch.” Dataset.
+<https://github.com/engganolang/kahler-1987>.
 
 </div>
 
