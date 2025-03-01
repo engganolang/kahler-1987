@@ -68,6 +68,9 @@ For future updates and version of records, please check the
 this GitHub repository and its [Zenodo
 archive](https://doi.org/10.5281/zenodo.14514671).
 
+The digitised dataset is available online at
+<https://enggano.shinyapps.io/enggano-german-dictionary/>.
+
 ## Overview
 
 The repository ([Rajeg et al. 2024](#ref-rajeg_kahler)) contains the
